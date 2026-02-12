@@ -121,10 +121,10 @@ input{
     to{opacity:1;}
 }
 
-/* Floating Watermarks */
+/* Floating Watermarks (single independent images) */
 .watermark {
-    position:fixed;
-    width: 25%;
+    position: fixed;
+    width: 20%;       /* adjust size */
     height: auto;
     opacity: 0.08;
     z-index: -1;
@@ -132,32 +132,55 @@ input{
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    animation:floatWatermark linear infinite;
 }
 
-/* Assign different durations for each watermark */
-.watermark1 { animation-duration: 60s; }
-.watermark2 { animation-duration: 80s; }
-.watermark3 { animation-duration: 70s; }
-.watermark4 { animation-duration: 90s; }
+/* Different animations for floating watermarks */
+.watermark1 { animation: float1 60s linear infinite; }
+.watermark2 { animation: float2 80s linear infinite; }
+.watermark3 { animation: float3 70s linear infinite; }
+.watermark4 { animation: float4 90s linear infinite; }
 
-@keyframes floatWatermark {
-    0%   { transform: translate(0px,0px) rotate(0deg); }
-    25%  { transform: translate(50px,-30px) rotate(10deg); }
-    50%  { transform: translate(-40px,40px) rotate(-10deg); }
-    75%  { transform: translate(30px,20px) rotate(5deg); }
-    100% { transform: translate(0px,0px) rotate(0deg); }
+@keyframes float1 {
+    0%   { top:5%; left:10%; transform: rotate(0deg); }
+    25%  { top:15%; left:60%; transform: rotate(10deg); }
+    50%  { top:40%; left:30%; transform: rotate(-10deg); }
+    75%  { top:25%; left:50%; transform: rotate(5deg); }
+    100% { top:5%; left:10%; transform: rotate(0deg); }
+}
+
+@keyframes float2 {
+    0%   { top:10%; left:80%; transform: rotate(0deg); }
+    25%  { top:30%; left:20%; transform: rotate(15deg); }
+    50%  { top:50%; left:60%; transform: rotate(-15deg); }
+    75%  { top:25%; left:40%; transform: rotate(10deg); }
+    100% { top:10%; left:80%; transform: rotate(0deg); }
+}
+
+@keyframes float3 {
+    0%   { top:70%; left:10%; transform: rotate(0deg); }
+    25%  { top:50%; left:50%; transform: rotate(-10deg); }
+    50%  { top:30%; left:20%; transform: rotate(10deg); }
+    75%  { top:60%; left:40%; transform: rotate(-5deg); }
+    100% { top:70%; left:10%; transform: rotate(0deg); }
+}
+
+@keyframes float4 {
+    0%   { top:60%; left:70%; transform: rotate(0deg); }
+    25%  { top:40%; left:30%; transform: rotate(15deg); }
+    50%  { top:20%; left:50%; transform: rotate(-15deg); }
+    75%  { top:50%; left:70%; transform: rotate(5deg); }
+    100% { top:60%; left:70%; transform: rotate(0deg); }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Floating Watermarks -->
-<div class="watermark watermark1" style="background-image:url('photo1.webp'); top:5%; left:5%;"></div>
-<div class="watermark watermark2" style="background-image:url('photo2.webp'); top:5%; right:5%;"></div>
-<div class="watermark watermark3" style="background-image:url('photo3.webp'); bottom:5%; left:5%;"></div>
-<div class="watermark watermark4" style="background-image:url('photo5.webp'); bottom:5%; right:5%;"></div>
+<!-- Floating Watermarks (single independent images) -->
+<div class="watermark watermark1" style="background-image:url('photo1.webp');"></div>
+<div class="watermark watermark2" style="background-image:url('photo2.webp');"></div>
+<div class="watermark watermark3" style="background-image:url('photo3.webp');"></div>
+<div class="watermark watermark4" style="background-image:url('photo5.webp');"></div>
 
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
@@ -201,59 +224,8 @@ I can imagine it already ❤️
     <button onclick="validateAnswer(4,'a1')">Next 💖</button>
 </div>
 
-<!-- QUESTION 2 -->
-<div class="page" id="page4">
-    <h1>Question 2 💭</h1>
-    <p>Which shop did we go to last Valentine’s Day?</p>
-    <input id="a2" placeholder="Type your answer...">
+<!-- Remaining pages can remain same as your original code -->
 
-    <br>
-    <button class="back-btn" onclick="goBack()">⬅ Back</button>
-    <button onclick="validateAnswer(5,'a2')">Next 💖</button>
-</div>
-
-<!-- QUESTION 3 -->
-<div class="page" id="page5">
-    <h1>Question 3 💭</h1>
-    <p>What did I give you last Valentine’s Day?</p>
-    <input id="a3" placeholder="Type your answer...">
-
-    <br>
-    <button class="back-btn" onclick="goBack()">⬅ Back</button>
-    <button onclick="validateAnswer(6,'a3')">Finish ❤️</button>
-</div>
-
-<!-- MESSAGE -->
-<div class="page scrollable" id="page6">
-    <h1>No Matter What 💞</h1>
-    <p>
-No matter what your answers were… 
-I never measured our love in right
-or wrong. I know we are walking through 
-a difficult phase… a space filled with 
-silence and distance. But even here — 
-my heart still speaks your name softly. 
-Not to pull you back with pressure, but 
-to remind you gently… There is someone who 
-still cares, still loves, still believes in *us*. 
-If life allows, if hearts heal, if paths meet again… 
-I will be right here, with the same love, the same warmth, 
-the same place for you. Because some feelings don’t end. 
-**They wait. 💖**
-What truly matters to me
-is not perfection,
-not right or wrong.
-
-It is us ❤️
-    </p>
-
-    <button class="back-btn" onclick="goBack()">⬅ Back</button>
-    <button onclick="nextPage(7)">Continue 💌</button>
-</div>
-
-<!-- POEMS AND FINAL PAGES remain same -->
-
-<!-- Floating Hearts + Heart & Kiss Shower scripts -->
 <script>
 let historyStack = [];
 
@@ -330,3 +302,8 @@ function heartKissShower(){
 
 </body>
 </html>
+
+
+</body>
+</html>
+
