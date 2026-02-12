@@ -127,15 +127,16 @@ input{
 }
 
 /* Watermark Photos */
-.watermark{
-    position:fixed;
-    inset:0;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size:contain;
-    opacity:0.08;
-    z-index:-1;
-    pointer-events:none;
+    .watermark {
+    position: fixed;
+    inset: 0;
+    background-image: url('photo1.webp'), url('photo2.webp'), url('photo3.webp'), url('photo5.webp');
+    background-repeat: no-repeat;
+    background-position: center, center, center, center;
+    background-size: contain, contain, contain, contain;
+    opacity: 0.08;
+    z-index: -1;
+    pointer-events: none;
 }
 }
 
@@ -145,10 +146,7 @@ input{
 <body>
 
 <!-- Watermark Background -->
-<div class="watermark" style="background-image:url('photo1.webp');"></div>
-<div class="watermark" style="background-image:url('photo2.webp');"></div>
-<div class="watermark" style="background-image:url('photo3.webp');"></div>
-<div class="watermark" style="background-image:url('photo5.webp');"></div>
+<div class="watermark"></div>
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
     <h1>Buahhh ❤️</h1>
@@ -421,6 +419,7 @@ noBtn.addEventListener("mouseover",()=>{
 
 </body>
 </html>
+
 
 
 
