@@ -121,7 +121,7 @@ input{
     to{opacity:1;}
 }
 
-/* Collage Watermark */
+/* Collage Watermark pushed slightly down */
 .watermark {
     position:fixed;
     width:50%;
@@ -132,11 +132,11 @@ input{
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
-    top:-20%;
+    top:5%; /* push down slightly */
 }
 
-.top-left { top:0; left:0; }
-.top-right { top:0; right:0; }
+.top-left { left:0; }
+.top-right { right:0; }
 .bottom-left { bottom:0; left:0; }
 .bottom-right { bottom:0; right:0; }
 
@@ -148,7 +148,7 @@ input{
 <!-- Watermark Collage -->
 <div class="watermark top-left" style="background-image:url('photo1.webp');"></div>
 <div class="watermark top-right" style="background-image:url('photo2.webp');"></div>
-<div class="watermark bottom-left" style="background-image:url('photo4.webp');"></div>
+<div class="watermark bottom-left" style="background-image:url('photo3.webp');"></div>
 <div class="watermark bottom-right" style="background-image:url('photo5.webp');"></div>
 
 <!-- PAGE 1 -->
@@ -440,16 +440,13 @@ function heartKissShower(){
     }
 }
 
-/* Trigger heart + kiss shower on YES button */
+/* Trigger heart + kiss shower on YES button and move to next page */
 const yesBtn = document.getElementById("yesBtn");
 yesBtn.addEventListener("click", ()=>{
     heartKissShower();
+    nextPage(2);
 });
 </script>
 
 </body>
 </html>
-
-
-
-
