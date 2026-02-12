@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -17,6 +17,7 @@ body{
     color:white;
     text-align:center;
     overflow:hidden;
+    position: relative;
 }
 
 @keyframes bgMove{
@@ -120,23 +121,25 @@ input{
     to{opacity:1;}
 }
 
-/* Romantic Diagonal Watermark Pattern */
+/* Dense Diagonal Watermark */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     z-index: -1;
     pointer-events: none;
+
     background-image: 
         url('photo1.webp'),
         url('photo2.webp'),
         url('photo3.webp'),
         url('photo5.webp');
+
     background-repeat: repeat;
-    background-position: 0 0, 150px 150px, 300px 300px, 450px 450px; /* diagonal offset */
-    background-size: 100px 100px, 100px 100px, 100px 100px, 100px 100px;
+    background-size: 80px 80px, 80px 80px, 80px 80px, 80px 80px;
+    background-position: 0 0, 40px 40px, 80px 80px, 120px 120px;
     opacity: 0.08;
-    transform: rotate(-15deg); /* optional diagonal effect */
+    transform: rotate(-15deg);
 }
 </style>
 </head>
@@ -157,7 +160,7 @@ my safest place.
 
     <h2>Will you be my Valentine? 💕</h2>
 
-    <button onclick="nextPage(2)">Yes ❤️</button>
+    <button id="yesBtn">Yes ❤️</button>
     <button id="noBtn">No 😜</button>
 </div>
 
@@ -239,9 +242,7 @@ It is us ❤️
 <!-- POEM 1 -->
 <div class="page scrollable" id="page7">
     <h1>A Little Something… 😌</h1>
-
     <img src="brown-teddy.png" class="brown-teddy">
-
     <p>
 kaigal koorthu  
 katti anaithu  
@@ -263,9 +264,7 @@ my buah... ❤️
 <!-- POEM 2 -->
 <div class="page scrollable" id="page8">
     <h1>And One More… 💞</h1>
-
     <img src="white-teddy.png" class="white-teddy">
-
     <p>
 kanne kaaviyame  
 karaiyathe kadinathil  
@@ -389,7 +388,7 @@ function burstEmojis(){
     }
 }
 
-/* Floating Hearts */
+/* Floating Hearts (background) */
 setInterval(()=>{
     const heart=document.createElement("div");
     heart.className="heart";
@@ -408,6 +407,38 @@ noBtn.addEventListener("mouseover",()=>{
     noBtn.style.position="absolute";
     noBtn.style.left=x+"px";
     noBtn.style.top=y+"px";
+});
+
+/* Heart + Kiss Shower Animation */
+function heartKissShower(){
+    const symbols = ["💖","💕","💘","💋"];
+    for(let i=0; i<50; i++){
+        const el = document.createElement("div");
+        el.style.position = "fixed";
+        el.style.fontSize = (20 + Math.random()*20) + "px";
+        el.style.left = Math.random()*100 + "vw";
+        el.style.bottom = "-50px";
+        el.style.pointerEvents = "none";
+        el.style.opacity = 0.8;
+        el.innerText = symbols[Math.floor(Math.random()*symbols.length)];
+        el.style.transition = "transform 3s linear, opacity 3s linear";
+        document.body.appendChild(el);
+
+        setTimeout(()=>{
+            const xMove = (Math.random()*200 - 100);
+            const yMove = window.innerHeight + 100;
+            el.style.transform = `translate(${xMove}px, -${yMove}px) rotate(${Math.random()*360}deg)`;
+            el.style.opacity = 0;
+        }, 50);
+
+        setTimeout(()=>el.remove(), 3500);
+    }
+}
+
+/* Trigger heart + kiss shower on YES button */
+const yesBtn = document.getElementById("yesBtn");
+yesBtn.addEventListener("click", ()=>{
+    heartKissShower();
 });
 </script>
 
