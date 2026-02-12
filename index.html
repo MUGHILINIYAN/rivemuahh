@@ -129,14 +129,32 @@ input{
 /* Watermark Photos */
     .watermark {
     position: fixed;
-    inset: 0;
-    background-image: url('photo1.webp'), url('photo2.webp'), url('photo3.webp'), url('photo5.webp');
-    background-repeat: no-repeat;
-    background-position: center, center, center, center;
-    background-size: contain, contain, contain, contain;
-    opacity: 0.08;
+    width: 25%;           /* adjust size of each watermark */
+    height: auto;
+    opacity: 0.08;        /* increase slightly if needed */
     z-index: -1;
     pointer-events: none;
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+}
 }
 }
 
@@ -146,7 +164,11 @@ input{
 <body>
 
 <!-- Watermark Background -->
-<div class="watermark"></div>
+<div class="watermark top-left" style="background-image:url('photo1.webp'); background-size: contain; background-repeat: no-repeat;"></div>
+<div class="watermark top-right" style="background-image:url('photo2.webp'); background-size: contain; background-repeat: no-repeat;"></div>
+<div class="watermark bottom-left" style="background-image:url('photo3.webp'); background-size: contain; background-repeat: no-repeat;"></div>
+<div class="watermark bottom-right" style="background-image:url('photo5.webp'); background-size: contain; background-repeat: no-repeat;"></div>
+
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
     <h1>Buahhh ❤️</h1>
@@ -419,6 +441,7 @@ noBtn.addEventListener("mouseover",()=>{
 
 </body>
 </html>
+
 
 
 
