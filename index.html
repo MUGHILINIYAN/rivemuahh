@@ -64,7 +64,6 @@ body{
 }
 
 .active{ display:block; }
-
 .scrollable{ overflow-y:auto; }
 
 h1{
@@ -105,7 +104,6 @@ button:hover{
     color:white;
 }
 
-/* Input */
 input{
     padding:12px;
     width:80%;
@@ -116,8 +114,8 @@ input{
     outline:none;
 }
 
-/* Hugging Bears */
-.bears{
+/* Kittens */
+.kittens{
     width:210px;
     margin-top:10px;
 }
@@ -182,34 +180,29 @@ I can imagine it already ❤️
     <button onclick="nextPage(3)">Proceed 💌</button>
 </div>
 
-<!-- QUESTION 1 -->
+<!-- QUESTIONS -->
 <div class="page" id="page3">
     <h1>Question 1 💭</h1>
     <p>What did I ask you on last year’s surprise meet?</p>
     <input id="a1" placeholder="Type your answer...">
-
     <br>
     <button class="back-btn" onclick="goBack()">⬅ Back</button>
     <button onclick="validateAnswer(4,'a1')">Next 💖</button>
 </div>
 
-<!-- QUESTION 2 -->
 <div class="page" id="page4">
     <h1>Question 2 💭</h1>
     <p>Which shop did we go to last Valentine’s Day?</p>
     <input id="a2" placeholder="Type your answer...">
-
     <br>
     <button class="back-btn" onclick="goBack()">⬅ Back</button>
     <button onclick="validateAnswer(5,'a2')">Next 💖</button>
 </div>
 
-<!-- QUESTION 3 -->
 <div class="page" id="page5">
     <h1>Question 3 💭</h1>
     <p>What did I give you last Valentine’s Day?</p>
     <input id="a3" placeholder="Type your answer...">
-
     <br>
     <button class="back-btn" onclick="goBack()">⬅ Back</button>
     <button onclick="validateAnswer(6,'a3')">Finish ❤️</button>
@@ -236,7 +229,7 @@ It is us ❤️
 <div class="page scrollable" id="page7">
     <h1>A Little Something… 😌</h1>
 
-    <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="bears">
+    <img src="https://cdn-icons-png.flaticon.com/512/616/616430.png" class="kittens">
 
     <p>
 kaigal koorthu  
@@ -260,7 +253,7 @@ my buah... ❤️
 <div class="page scrollable" id="page8">
     <h1>And One More… 💞</h1>
 
-    <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="bears">
+    <img src="https://cdn-icons-png.flaticon.com/512/616/616430.png" class="kittens">
 
     <p>
 kanne kaaviyame  
@@ -298,9 +291,6 @@ not just this Valentine’s Day…
 But in every laugh,
 every silence,
 every heartbeat of mine ❤️
-
-With you,
-everything feels right.
     </p>
 
     <button class="back-btn" onclick="goBack()">⬅ Back</button>
@@ -328,7 +318,6 @@ function nextPage(pageNumber){
 
 function goBack(){
     if(historyStack.length === 0) return;
-
     const prev = historyStack.pop();
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
     document.getElementById(prev).classList.add('active');
@@ -348,7 +337,6 @@ function goToFinal(){
     nextPage(9);
 }
 
-/* Emoji Burst */
 function burstEmojis(){
     const emojis = ["💖","💕","💘","😘","💋"];
     for(let i=0;i<35;i++){
@@ -362,7 +350,6 @@ function burstEmojis(){
     }
 }
 
-/* Floating Hearts */
 setInterval(()=>{
     const heart=document.createElement("div");
     heart.className="heart";
@@ -373,7 +360,6 @@ setInterval(()=>{
     setTimeout(()=>heart.remove(),7000);
 },500);
 
-/* NO button escape */
 const noBtn=document.getElementById("noBtn");
 noBtn.addEventListener("mouseover",()=>{
     const x=Math.random()*window.innerWidth*0.7;
