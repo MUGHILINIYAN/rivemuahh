@@ -72,44 +72,49 @@ input{
     outline:none;
 }
 
-/* Floating hearts */
+/* FLOATING HEARTS */
 .heart{ position:fixed; bottom:-40px; font-size:22px; opacity:0.7; animation:floatUp linear forwards; }
 @keyframes floatUp{ to{ transform:translateY(-110vh) scale(1.4); opacity:0; } }
 
-/* Burst Emojis */
+/* BURST EMOJIS */
 .burst{ position:fixed; font-size:26px; animation:burstAnim 1.3s ease-out forwards; }
 @keyframes burstAnim{ to{ transform:translateY(-220px) scale(1.8); opacity:0; } }
 
 @keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
 
-/* WATERMARK IMAGES */
-.watermark-img{
+/* WATERMARK DIVS */
+.watermark{
     position: fixed;
     width: 150px;
-    opacity:0.08;
-    z-index:0; /* behind all page content */
-    pointer-events:none;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index:0;
+    border-radius:50%; /* optional for smooth edges */
 }
+
+/* ASSIGN IMAGES + ANIMATIONS */
+.floatA { background-image: url('photo1.webp'); animation: floatA 60s linear infinite; top:5%; left:10%; }
+.floatB { background-image: url('photo2.webp'); animation: floatB 80s linear infinite; top:15%; left:70%; }
+.floatC { background-image: url('photo4.webp'); animation: floatC 70s linear infinite; bottom:10%; left:20%; }
+.floatD { background-image: url('photo5.webp'); animation: floatD 90s linear infinite; bottom:15%; right:10%; }
 
 /* WATERMARK FLOAT ANIMATIONS */
 @keyframes floatA {0% {transform: translate(0,0);} 25% {transform: translate(50px,-30px);} 50% {transform: translate(-40px,40px);} 75% {transform: translate(30px,20px);} 100% {transform: translate(0,0);}}
 @keyframes floatB {0% {transform: translate(0,0);} 25% {transform: translate(-60px,30px);} 50% {transform: translate(40px,-20px);} 75% {transform: translate(-30px,10px);} 100% {transform: translate(0,0);}}
 @keyframes floatC {0% {transform: translate(0,0);} 25% {transform: translate(30px,40px);} 50% {transform: translate(-50px,-30px);} 75% {transform: translate(20px,10px);} 100% {transform: translate(0,0);}}
 @keyframes floatD {0% {transform: translate(0,0);} 25% {transform: translate(-40px,-30px);} 50% {transform: translate(50px,20px);} 75% {transform: translate(-20px,30px);} 100% {transform: translate(0,0);}}
-
-.floatA { animation: floatA 60s linear infinite; top:5%; left:10%; }
-.floatB { animation: floatB 80s linear infinite; top:15%; left:70%; }
-.floatC { animation: floatC 70s linear infinite; bottom:10%; left:20%; }
-.floatD { animation: floatD 90s linear infinite; bottom:15%; right:10%; }
 </style>
 </head>
 <body>
 
-<!-- FLOATING WATERMARK IMAGES -->
-<img src="photo1.webp" class="watermark-img floatA">
-<img src="photo2.webp" class="watermark-img floatB">
-<img src="photo4.webp" class="watermark-img floatC">
-<img src="photo5.webp" class="watermark-img floatD">
+<!-- FLOATING WATERMARK DIVS -->
+<div class="watermark floatA"></div>
+<div class="watermark floatB"></div>
+<div class="watermark floatC"></div>
+<div class="watermark floatD"></div>
 
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
@@ -344,7 +349,3 @@ function heartKissShower(){
 </script>
 </body>
 </html>
-
-
-
-
