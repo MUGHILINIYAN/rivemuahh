@@ -101,12 +101,6 @@ input{
     outline:none;
 }
 
-/* Romantic Icon */
-.love-icon{
-    width:160px;
-    margin-top:15px;
-}
-
 /* Burst Emojis */
 .burst{
     position:fixed;
@@ -126,40 +120,28 @@ input{
     to{opacity:1;}
 }
 
-/* Watermark Grid */
-.watermark-container {
+/* Romantic Diagonal Watermark Pattern */
+body::before {
+    content: "";
     position: fixed;
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 20px;
-    padding: 40px;
+    background-image: 
+        url('photo1.webp'),
+        url('photo2.webp'),
+        url('photo3.webp'),
+        url('photo5.webp');
+    background-repeat: repeat;
+    background-position: 0 0, 150px 150px, 300px 300px, 450px 450px; /* diagonal offset */
+    background-size: 100px 100px, 100px 100px, 100px 100px, 100px 100px;
     opacity: 0.08;
+    transform: rotate(-15deg); /* optional diagonal effect */
 }
-
-.watermark-container div {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-}
-
 </style>
 </head>
 
 <body>
-
-<!-- Watermark Grid Layout -->
-<div class="watermark-container">
-    <div style="background-image:url('photo1.webp');"></div>
-    <div style="background-image:url('photo2.webp');"></div>
-    <div style="background-image:url('photo3.webp');"></div>
-    <div style="background-image:url('photo5.webp');"></div>
-</div>
 
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
@@ -258,7 +240,6 @@ It is us ❤️
 <div class="page scrollable" id="page7">
     <h1>A Little Something… 😌</h1>
 
-    <!-- Lovely Couple Icon -->
     <img src="brown-teddy.png" class="brown-teddy">
 
     <p>
@@ -283,7 +264,6 @@ my buah... ❤️
 <div class="page scrollable" id="page8">
     <h1>And One More… 💞</h1>
 
-    <!-- Lovely Couple Icon -->
     <img src="white-teddy.png" class="white-teddy">
 
     <p>
@@ -433,4 +413,3 @@ noBtn.addEventListener("mouseover",()=>{
 
 </body>
 </html>
-
