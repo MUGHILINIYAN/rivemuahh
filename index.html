@@ -121,7 +121,7 @@ input{
     to{opacity:1;}
 }
 
-/* Collage Watermark pushed slightly down */
+/* Watermark Collage Layout */
 .watermark {
     position:fixed;
     width:50%;
@@ -132,13 +132,13 @@ input{
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
-    top:5%; /* push down slightly */
 }
 
-.top-left { left:0; }
-.top-right { right:0; }
-.bottom-left { bottom:0; left:0; }
-.bottom-right { bottom:0; right:0; }
+/* 2x2 Collage positions */
+.top-left { top:5%; left:0; }
+.top-right { top:5%; right:0; }
+.bottom-left { bottom:5%; left:0; }
+.bottom-right { bottom:5%; right:0; }
 
 </style>
 </head>
@@ -165,7 +165,8 @@ my safest place.
 
     <h2>Will you be my Valentine? 💕</h2>
 
-    <button id="yesBtn">Yes ❤️</button>
+    <!-- YES button triggers shower + next page -->
+    <button onclick="heartKissShower(); nextPage(2);">Yes ❤️</button>
     <button id="noBtn">No 😜</button>
 </div>
 
@@ -352,14 +353,12 @@ let historyStack = [];
 function nextPage(pageNumber){
     const current = document.querySelector('.page.active');
     if(current) historyStack.push(current.id);
-
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
     document.getElementById('page'+pageNumber).classList.add('active');
 }
 
 function goBack(){
     if(historyStack.length === 0) return;
-
     const prev = historyStack.pop();
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
     document.getElementById(prev).classList.add('active');
@@ -439,13 +438,6 @@ function heartKissShower(){
         setTimeout(()=>el.remove(), 3500);
     }
 }
-
-/* Trigger heart + kiss shower on YES button and move to next page */
-const yesBtn = document.getElementById("yesBtn");
-yesBtn.addEventListener("click", ()=>{
-    heartKissShower();
-    nextPage(2);
-});
 </script>
 
 </body>
