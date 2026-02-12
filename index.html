@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
 
 <style>
+/* GENERAL BODY */
 body{
     margin:0;
     font-family:'Poppins',sans-serif;
@@ -20,24 +21,29 @@ body{
     position: relative;
 }
 
+/* BACKGROUND GRADIENT ANIMATION */
 @keyframes bgMove{
     0%{background-position:0% 50%;}
     50%{background-position:100% 50%;}
     100%{background-position:0% 50%;}
 }
 
+/* PAGES */
 .page{
     display:none;
     height:100vh;
     padding:40px 20px;
     box-sizing:border-box;
     animation:fadeIn 0.7s ease;
+    position: relative;
+    z-index:1; /* ensures pages above watermark */
 }
 
 .active{ display:block; }
 .scrollable{ overflow-y:auto; }
 
 h1{ font-family:'Pacifico',cursive; font-size:2.4rem; }
+h2,h3,h4{ font-family:'Poppins',sans-serif; }
 p{ font-size:1.1rem; max-width:650px; margin:20px auto; line-height:1.6; white-space:pre-line; }
 
 button{
@@ -55,7 +61,7 @@ button{
 button:hover{ transform:scale(1.08); background:#ff4b7d; color:white; }
 .back-btn{ background:transparent; border:2px solid white; color:white; }
 
-/* Input */
+/* INPUT FIELDS */
 input{
     padding:12px;
     width:80%;
@@ -65,36 +71,41 @@ input{
     margin-top:15px;
     outline:none;
 }
-.kitten{
-    width:180px;
-    margin-top:10px;
-/* Floating Hearts */
+
+/* Floating hearts */
 .heart{ position:fixed; bottom:-40px; font-size:22px; opacity:0.7; animation:floatUp linear forwards; }
 @keyframes floatUp{ to{ transform:translateY(-110vh) scale(1.4); opacity:0; } }
 
 /* Burst Emojis */
 .burst{ position:fixed; font-size:26px; animation:burstAnim 1.3s ease-out forwards; }
 @keyframes burstAnim{ to{ transform:translateY(-220px) scale(1.8); opacity:0; } }
+
 @keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
 
-/* Floating Watermarks as images */
-.watermark-img{ position: fixed; width: 150px; opacity:0.08; z-index:-1; pointer-events:none; }
+/* WATERMARK IMAGES */
+.watermark-img{
+    position: fixed;
+    width: 150px;
+    opacity:0.08;
+    z-index:0; /* behind all page content */
+    pointer-events:none;
+}
 
-/* Watermark animations */
+/* WATERMARK FLOAT ANIMATIONS */
 @keyframes floatA {0% {transform: translate(0,0);} 25% {transform: translate(50px,-30px);} 50% {transform: translate(-40px,40px);} 75% {transform: translate(30px,20px);} 100% {transform: translate(0,0);}}
 @keyframes floatB {0% {transform: translate(0,0);} 25% {transform: translate(-60px,30px);} 50% {transform: translate(40px,-20px);} 75% {transform: translate(-30px,10px);} 100% {transform: translate(0,0);}}
 @keyframes floatC {0% {transform: translate(0,0);} 25% {transform: translate(30px,40px);} 50% {transform: translate(-50px,-30px);} 75% {transform: translate(20px,10px);} 100% {transform: translate(0,0);}}
 @keyframes floatD {0% {transform: translate(0,0);} 25% {transform: translate(-40px,-30px);} 50% {transform: translate(50px,20px);} 75% {transform: translate(-20px,30px);} 100% {transform: translate(0,0);}}
 
 .floatA { animation: floatA 60s linear infinite; top:5%; left:10%; }
-.floatB { animation: floatB 80s linear infinite; top:15%; left:20%; }
+.floatB { animation: floatB 80s linear infinite; top:15%; left:70%; }
 .floatC { animation: floatC 70s linear infinite; bottom:10%; left:20%; }
 .floatD { animation: floatD 90s linear infinite; bottom:15%; right:10%; }
 </style>
 </head>
 <body>
 
-<!-- Floating Watermark Images -->
+<!-- FLOATING WATERMARK IMAGES -->
 <img src="photo1.webp" class="watermark-img floatA">
 <img src="photo2.webp" class="watermark-img floatB">
 <img src="photo4.webp" class="watermark-img floatC">
@@ -260,6 +271,7 @@ Today. Tomorrow. Always.
 <script>
 let historyStack = [];
 
+/* PAGE NAVIGATION */
 function nextPage(pageNumber){
     const current = document.querySelector('.page.active');
     if(current) historyStack.push(current.id);
@@ -283,7 +295,7 @@ function validateAnswer(next, id){
     nextPage(next);
 }
 
-/* Floating Hearts Background */
+/* FLOATING HEARTS BACKGROUND */
 setInterval(()=>{
     const heart=document.createElement("div");
     heart.className="heart";
@@ -294,7 +306,7 @@ setInterval(()=>{
     setTimeout(()=>heart.remove(),7000);
 },500);
 
-/* NO button */
+/* NO BUTTON ESCAPE */
 const noBtn=document.getElementById("noBtn");
 noBtn.addEventListener("mouseover",()=>{
     const x=Math.random()*window.innerWidth*0.7;
@@ -304,7 +316,7 @@ noBtn.addEventListener("mouseover",()=>{
     noBtn.style.top=y+"px";
 });
 
-/* Heart + Kiss Shower */
+/* HEART + KISS SHOWER */
 function heartKissShower(){
     const symbols = ["💖","💕","💘","💋"];
     for(let i=0; i<50; i++){
@@ -332,8 +344,6 @@ function heartKissShower(){
 </script>
 </body>
 </html>
-
-
 
 
 
