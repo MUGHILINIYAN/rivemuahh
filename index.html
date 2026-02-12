@@ -25,6 +25,18 @@ body{
     100%{background-position:0% 50%;}
 }
 
+/* Watermark Photos */
+.watermark{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:0.08;
+    background-image:url('photo1.webp'), url('photo2.webp'), url('photo3.webp');
+    background-size:220px;
+    background-repeat:repeat;
+    z-index:0;
+}
+
 /* Floating Hearts */
 .heart{
     position:fixed;
@@ -32,6 +44,7 @@ body{
     font-size:22px;
     opacity:0.7;
     animation:floatUp linear forwards;
+    z-index:2;
 }
 
 @keyframes floatUp{
@@ -41,21 +54,6 @@ body{
     }
 }
 
-/* Watermark Photos */
-.watermark{
-    position:fixed;
-    width:140px;
-    opacity:0.08;
-    z-index:0;
-}
-
-.wm1{ top:5%; left:3%; }
-.wm2{ top:20%; right:5%; }
-.wm3{ bottom:15%; left:5%; }
-.wm4{ bottom:5%; right:3%; }
-.wm5{ top:45%; left:40%; }
-
-/* Pages */
 .page{
     display:none;
     height:100vh;
@@ -63,7 +61,7 @@ body{
     box-sizing:border-box;
     animation:fadeIn 0.7s ease;
     position:relative;
-    z-index:2;
+    z-index:1;
 }
 
 .active{ display:block; }
@@ -118,11 +116,10 @@ input{
     outline:none;
 }
 
-/* Kittens */
-.kittens{
-    width:170px;
+/* Romantic Kitten Image */
+.kitten{
+    width:180px;
     margin-top:10px;
-    border-radius:18px;
 }
 
 /* Burst Emojis */
@@ -130,7 +127,7 @@ input{
     position:fixed;
     font-size:26px;
     animation:burstAnim 1.3s ease-out forwards;
-    z-index:999;
+    z-index:3;
 }
 
 @keyframes burstAnim{
@@ -149,12 +146,7 @@ input{
 
 <body>
 
-<!-- Watermark Photos -->
-<img src="photo1.webp" class="watermark wm1">
-<img src="photo2.webp" class="watermark wm2">
-<img src="photo3.webp" class="watermark wm3">
-<img src="photo4.webp" class="watermark wm4">
-<img src="photo5.webp" class="watermark wm5">
+<div class="watermark"></div>
 
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
@@ -240,7 +232,7 @@ It is us ❤️
 <div class="page scrollable" id="page7">
     <h1>A Little Something… 😌</h1>
 
-    <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?q=80&w=400" class="kittens">
+    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" class="kitten">
 
     <p>
 kaigal koorthu  
@@ -264,7 +256,7 @@ my buah... ❤️
 <div class="page scrollable" id="page8">
     <h1>And One More… 💞</h1>
 
-    <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?q=80&w=400" class="kittens">
+    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" class="kitten">
 
     <p>
 kanne kaaviyame  
@@ -278,12 +270,7 @@ ondraai kalipom kaadhalil
 malare en maname  
 kaalamellaam un kaal adiyil  
 vairame iniya vaigaiye  
-irunthidave intha vaalkai varam  
-theeyum theemaiyum  
-thaangiduven unakaga  
-vaalkaiyum adhan paathaiyum  
-amaithiduven un udane  
-irunthidave en vaalvu... ❤️
+irunthidave intha vaalkai varam ❤️
     </p>
 
     <button class="back-btn" onclick="goBack()">⬅ Back</button>
@@ -292,7 +279,7 @@ irunthidave en vaalvu... ❤️
 
 <!-- FINAL MESSAGE -->
 <div class="page scrollable" id="page9">
-    <h1>Before The Surprise Rolls Up… 💞</h1>
+    <h1>Before the Surprise Rolls Up 💞</h1>
     <p>
 You are my favourite feeling,
 today, tomorrow, always ❤️
@@ -370,7 +357,7 @@ setInterval(()=>{
     setTimeout(()=>heart.remove(),7000);
 },500);
 
-/* NO button */
+/* NO button run away */
 const noBtn=document.getElementById("noBtn");
 noBtn.addEventListener("mouseover",()=>{
     const x=Math.random()*window.innerWidth*0.7;
