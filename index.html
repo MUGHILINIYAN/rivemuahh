@@ -25,18 +25,6 @@ body{
     100%{background-position:0% 50%;}
 }
 
-/* Watermark Photos */
-.watermark{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:0.08;
-    background-image:url('photo1.webp'), url('photo2.webp'), url('photo3.webp');
-    background-size:220px;
-    background-repeat:repeat;
-    z-index:0;
-}
-
 /* Floating Hearts */
 .heart{
     position:fixed;
@@ -44,7 +32,6 @@ body{
     font-size:22px;
     opacity:0.7;
     animation:floatUp linear forwards;
-    z-index:2;
 }
 
 @keyframes floatUp{
@@ -60,8 +47,6 @@ body{
     padding:40px 20px;
     box-sizing:border-box;
     animation:fadeIn 0.7s ease;
-    position:relative;
-    z-index:1;
 }
 
 .active{ display:block; }
@@ -116,10 +101,10 @@ input{
     outline:none;
 }
 
-/* Romantic Kitten Image */
-.kitten{
-    width:180px;
-    margin-top:10px;
+/* Romantic Icon */
+.love-icon{
+    width:160px;
+    margin-top:15px;
 }
 
 /* Burst Emojis */
@@ -127,7 +112,6 @@ input{
     position:fixed;
     font-size:26px;
     animation:burstAnim 1.3s ease-out forwards;
-    z-index:3;
 }
 
 @keyframes burstAnim{
@@ -141,16 +125,28 @@ input{
     from{opacity:0;}
     to{opacity:1;}
 }
+
+/* Watermark Photos */
+.watermark{
+    position:fixed;
+    inset:0;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:cover;
+    opacity:0.08;
+    z-index:-1;
+}
 </style>
 </head>
 
 <body>
 
-<div class="watermark"></div>
+<!-- Watermark Background -->
+<div class="watermark" style="background-image:url('photo1.webp');"></div>
 
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
-    <h1>My Love ❤️</h1>
+    <h1>Buahhh ❤️</h1>
     <p>
 From the day you walked into my life,
 everything changed beautifully.
@@ -215,8 +211,20 @@ I can imagine it already ❤️
 <div class="page scrollable" id="page6">
     <h1>No Matter What 💞</h1>
     <p>
-No matter what your answers were…
-
+No matter what your answers were… 
+I never measured our love in right
+or wrong. What we shared was never 
+a quiz, never a test, never something 
+fragile. I know we are walking through 
+a difficult phase… a space filled with 
+silence and distance. But even here — 
+my heart still speaks your name softly. 
+Not to pull you back with pressure, but 
+to remind you gently… There is someone who 
+still cares, still loves, still believes in *us*. 
+If life allows, if hearts heal, if paths meet again… 
+I will be right here, with the same love, the same warmth, 
+the same place for you. Because some feelings don’t end. **They wait. 💖**
 What truly matters to me
 is not perfection,
 not right or wrong.
@@ -232,7 +240,8 @@ It is us ❤️
 <div class="page scrollable" id="page7">
     <h1>A Little Something… 😌</h1>
 
-    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" class="kitten">
+    <!-- Lovely Couple Icon -->
+    <img src="brown-teddy.png" class="brown-teddy">
 
     <p>
 kaigal koorthu  
@@ -256,7 +265,8 @@ my buah... ❤️
 <div class="page scrollable" id="page8">
     <h1>And One More… 💞</h1>
 
-    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" class="kitten">
+    <!-- Lovely Couple Icon -->
+    <img src="white-teddy.png" class="white-teddy">
 
     <p>
 kanne kaaviyame  
@@ -270,7 +280,12 @@ ondraai kalipom kaadhalil
 malare en maname  
 kaalamellaam un kaal adiyil  
 vairame iniya vaigaiye  
-irunthidave intha vaalkai varam ❤️
+irunthidave intha vaalkai varam  
+theeyum theemaiyum  
+thaangiduven unakaga  
+vaalkaiyum adhan paathaiyum  
+amaithiduven un udane  
+irunthidave en vaalvu... ❤️
     </p>
 
     <button class="back-btn" onclick="goBack()">⬅ Back</button>
@@ -279,12 +294,41 @@ irunthidave intha vaalkai varam ❤️
 
 <!-- FINAL MESSAGE -->
 <div class="page scrollable" id="page9">
-    <h1>Before the Surprise Rolls Up 💞</h1>
+    <h1>Before The Surprise Rolls Up… 💞</h1>
     <p>
+        If there is one person who made me feel myself is you and I want you to always remember…
+
+        It’s this.
+
+        You are not just someone I love.
+
+        You are my favourite feeling.  
+        My safest place.  
+        My most beautiful thought.
+
+        In your smile, I found my peace.  
+        In your voice, I found my comfort.  
+        In your heart, I found my home.
+
+        Life may change, days may pass,
+        seasons may come and go…
+
+        But one thing will stay constant.
+
+        **My love for you.**
+
+        Not because I have to…
+        but because my heart simply chose you.
+
+        Today.  
+        Tomorrow.  
+        Always.
+
+        Happy Valentine’s Day, my love ❤️
 You are my favourite feeling,
 today, tomorrow, always ❤️
 
-Happy Valentine’s Day 💖
+Happy Valentine’s Day My dear papa💖
     </p>
 
     <button class="back-btn" onclick="goBack()">⬅ Back</button>
@@ -295,7 +339,8 @@ Happy Valentine’s Day 💖
 <div class="page" id="page10">
     <h1>Enna Vitratha… ❤️</h1>
     <h2>✨ ENNA VITRATHA RIVE ✨</h2>
-
+    <h3>❤️I love you soo much thangamee❤️</h3>
+    <h4>💋uuuuummmmmmmmmaaaaaaaaahhhhhhhhh💋</h4>
     <button class="back-btn" onclick="goBack()">⬅ Back</button>
 </div>
 
@@ -357,7 +402,7 @@ setInterval(()=>{
     setTimeout(()=>heart.remove(),7000);
 },500);
 
-/* NO button run away */
+/* NO button */
 const noBtn=document.getElementById("noBtn");
 noBtn.addEventListener("mouseover",()=>{
     const x=Math.random()*window.innerWidth*0.7;
