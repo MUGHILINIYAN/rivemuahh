@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;}
+
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+/* Romantic blur overlay */
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.15);
+    backdrop-filter:blur(6px);
+    z-index:-1;
+}
+
+/* Pages */
+.page{
+    display:none;
+    height:100vh;
+    padding:40px 20px;
+    animation:fadeIn 0.8s ease;
+}
+
+.active{ display:flex; flex-direction:column; justify-content:center; align-items:center; }
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+h1{
+    font-family:'Pacifico',cursive;
+    font-size:2.4rem;
+    margin-bottom:10px;
+}
+
+p{
+    max-width:700px;
+    line-height:1.6;
+    font-size:1.05rem;
+}
+
+/* Glass Card */
+.card{
+    background:rgba(255,255,255,0.15);
+    padding:25px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 8px 30px rgba(0,0,0,0.25);
+}
+
+/* Buttons */
+button{
+    padding:12px 26px;
+    margin:10px;
+    border:none;
+    border-radius:30px;
+    font-size:1rem;
+    cursor:pointer;
+    background:white;
+    color:#ff4b7d;
+    font-weight:600;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    background:#ff4b7d;
+    color:white;
+}
+
+/* Input */
+input{
+    margin-top:15px;
+    padding:12px;
+    border-radius:25px;
+    border:none;
+    width:260px;
+    text-align:center;
+    font-size:1rem;
+}
+
+/* Floating Hearts */
+.heart{
+    position:fixed;
+    bottom:-40px;
+    font-size:22px;
+    animation:floatUp 6s linear infinite;
+    opacity:0.7;
+}
+
+@keyframes floatUp{
+    0%{ transform:translateY(0) scale(1);}
+    100%{ transform:translateY(-110vh) scale(1.5); opacity:0;}
+}
+
+/* Teddy Background */
+.teddy-bg{
+    position:fixed;
+    bottom:10px;
+    right:10px;
+    width:160px;
+    opacity:0.9;
+    animation:floatTeddy 4s ease-in-out infinite;
+}
+
+@keyframes floatTeddy{
+    0%,100%{ transform:translateY(0);}
+    50%{ transform:translateY(-10px);}
+}
+
+/* Gallery */
+.gallery{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:15px;
+}
+
+.gallery img{
+    width:110px;
+    height:110px;
+    object-fit:cover;
+    border-radius:15px;
+    border:2px solid white;
+    transition:0.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.1);
+}
+
+/* Poems */
+.poem{
+    white-space:pre-line;
+    font-style:italic;
+    font-size:1.15rem;
+    margin-top:20px;
+}
+
+/* Burst Emojis */
+.burst{
+    position:fixed;
+    font-size:28px;
+    animation:burstAnim 1.2s ease-out forwards;
+}
+
+@keyframes burstAnim{
+    0%{transform:scale(0.5); opacity:1;}
+    100%{transform:translateY(-200px) scale(1.8); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Teddy Bears Background -->
+<img src="white-teddy.png" class="teddy-bg" style="right:20px;">
+<img src="brown-teddy.png" class="teddy-bg" style="right:190px;">
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+    <div class="card">
+        <h1>My Love ❤️</h1>
+        <p>
+            Even with miles between us,  
+            my heart still whispers your name…
+        </p>
+        <h2>Will you be my Valentine? 💕</h2>
+        <button onclick="nextPage(2)">Yes ❤️</button>
+        <button id="noBtn">No 😜</button>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+    <div class="card">
+        <h1>You Said Yes 😌💖</h1>
+        <p>Let’s relive a few memories together ❤️</p>
+        <button onclick="nextPage(3)">Begin 💌</button>
+    </div>
+</div>
+
+<!-- QUESTIONS WITH INPUT -->
+<div class="page" id="page3">
+    <div class="card">
+        <h1>Question 1 💭</h1>
+        <p>What did I ask you on our surprise meet?</p>
+        <input placeholder="Type your answer ❤️">
+        <button onclick="nextPage(4)">Proceed 💖</button>
+    </div>
+</div>
+
+<div class="page" id="page4">
+    <div class="card">
+        <h1>Question 2 💭</h1>
+        <p>Which place did we go last Valentine’s Day?</p>
+        <input placeholder="Your memory 😌">
+        <button onclick="nextPage(5)">Proceed 💖</button>
+    </div>
+</div>
+
+<div class="page" id="page5">
+    <div class="card">
+        <h1>Question 3 💭</h1>
+        <p>What gift did I give you? 🎁</p>
+        <input placeholder="Type it 💕">
+        <button onclick="nextPage(6)">Finish ❤️</button>
+    </div>
+</div>
+
+<!-- MESSAGE -->
+<div class="page" id="page6">
+    <div class="card">
+        <h1>No Matter What 💞</h1>
+        <p>
+            I don’t mind the answers…  
+            because loving you was never a quiz.
+
+            Even in this silence,  
+            even in this distance…
+
+            My heart still chooses you. ❤️
+        </p>
+        <button onclick="goToPoem1()">One Last Thing 💌</button>
+    </div>
+</div>
+
+<!-- POEM PAGE 1 -->
+<div class="page" id="page7">
+    <div class="card">
+        <h1>For You… Always 😌</h1>
+
+        <div class="gallery">
+            <img src="photo1.webp">
+            <img src="photo2.webp">
+        </div>
+
+        <div class="poem">
+kaigal koorthu  
+katti anaithu  
+kaalgal inainthu  
+kaadhalai vanainthu  
+kanda kanave  
+un siripaiyum  
+en thool meedhu nee  
+meendum saaika  
+kaathirukiren  
+my buah... ❤️
+        </div>
+
+        <button onclick="goToPoem2()">Next 💕</button>
+    </div>
+</div>
+
+<!-- POEM PAGE 2 -->
+<div class="page" id="page8">
+    <div class="card">
+        <h1>My Promise 💖</h1>
+
+        <div class="gallery">
+            <img src="photo3.webp">
+        </div>
+
+        <div class="poem">
+kanne kaaviyame  
+karaiyathe kadinathil  
+anbe agilame  
+udan irupen intha tharunathil  
+mazhaiye mazhazhai kurale  
+meedham ulla naatkalil  
+amudhe aruyire  
+ondraai kalipom kaadhalil ❤️
+        </div>
+    </div>
+</div>
+
+<script>
+function nextPage(num){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById('page'+num).classList.add('active');
+}
+
+function goToPoem1(){
+    burstEmojis();
+    nextPage(7);
+}
+
+function goToPoem2(){
+    burstEmojis();
+    nextPage(8);
+}
+
+function burstEmojis(){
+    const emojis=["💖","💕","💘","😘","💋"];
+    for(let i=0;i<25;i++){
+        const el=document.createElement("div");
+        el.className="burst";
+        el.innerText=emojis[Math.floor(Math.random()*emojis.length)];
+        el.style.left=Math.random()*100+"vw";
+        el.style.top=Math.random()*100+"vh";
+        document.body.appendChild(el);
+        setTimeout(()=>el.remove(),1200);
+    }
+}
+
+/* Floating hearts */
+setInterval(()=>{
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerText=Math.random()>0.5?"💖":"💕";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(4+Math.random()*3)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),7000);
+},500);
+
+/* Naughty NO button */
+const noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseover",()=>{
+    noBtn.style.position="absolute";
+    noBtn.style.left=Math.random()*70+"vw";
+    noBtn.style.top=Math.random()*70+"vh";
+});
+noBtn.addEventListener("click",()=>{
+    alert("Hehe… YES only 😜❤️");
+});
+</script>
+
+</body>
+</html>
