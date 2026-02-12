@@ -36,7 +36,7 @@ body{
     box-sizing:border-box;
     animation:fadeIn 0.7s ease;
     position: relative;
-    z-index:1; /* ensures pages above watermark */
+    z-index:1; /* pages above watermark */
 }
 
 .active{ display:block; }
@@ -92,16 +92,14 @@ input{
     opacity: 0.08;
     pointer-events: none;
     z-index:0;
-    border-radius:50%; /* optional for smooth edges */
+    border-radius:50%;
 }
 
-/* ASSIGN IMAGES + ANIMATIONS */
 .floatA { background-image: url('photo1.webp'); animation: floatA 60s linear infinite; top:5%; left:10%; }
 .floatB { background-image: url('photo2.webp'); animation: floatB 80s linear infinite; top:15%; left:70%; }
 .floatC { background-image: url('photo4.webp'); animation: floatC 70s linear infinite; bottom:10%; left:20%; }
 .floatD { background-image: url('photo5.webp'); animation: floatD 90s linear infinite; bottom:15%; right:10%; }
 
-/* WATERMARK FLOAT ANIMATIONS */
 @keyframes floatA {0% {transform: translate(0,0);} 25% {transform: translate(50px,-30px);} 50% {transform: translate(-40px,40px);} 75% {transform: translate(30px,20px);} 100% {transform: translate(0,0);}}
 @keyframes floatB {0% {transform: translate(0,0);} 25% {transform: translate(-60px,30px);} 50% {transform: translate(40px,-20px);} 75% {transform: translate(-30px,10px);} 100% {transform: translate(0,0);}}
 @keyframes floatC {0% {transform: translate(0,0);} 25% {transform: translate(30px,40px);} 50% {transform: translate(-50px,-30px);} 75% {transform: translate(20px,10px);} 100% {transform: translate(0,0);}}
@@ -311,14 +309,21 @@ setInterval(()=>{
     setTimeout(()=>heart.remove(),7000);
 },500);
 
-/* NO BUTTON ESCAPE */
-const noBtn=document.getElementById("noBtn");
-noBtn.addEventListener("mouseover",()=>{
-    const x=Math.random()*window.innerWidth*0.7;
-    const y=Math.random()*window.innerHeight*0.7;
-    noBtn.style.position="absolute";
-    noBtn.style.left=x+"px";
-    noBtn.style.top=y+"px";
+/* NO BUTTON ESCAPE + ALERT */
+const noBtn = document.getElementById("noBtn");
+
+// Move button randomly on hover
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+// Alert if clicked
+noBtn.addEventListener("click", () => {
+    alert("Oops Buah 😌 You are only allowed to click Yes ❤️");
 });
 
 /* HEART + KISS SHOWER */
