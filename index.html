@@ -8,8 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;}
-
 body{
     margin:0;
     font-family:'Poppins',sans-serif;
@@ -19,56 +17,48 @@ body{
     overflow:hidden;
 }
 
-/* Romantic blur overlay */
-body::before{
-    content:'';
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.15);
-    backdrop-filter:blur(6px);
-    z-index:-1;
-}
-
 /* Pages */
 .page{
     display:none;
     height:100vh;
     padding:40px 20px;
-    animation:fadeIn 0.8s ease;
+    box-sizing:border-box;
+    animation:fadeIn 1s ease-in-out;
 }
-
-.active{ display:flex; flex-direction:column; justify-content:center; align-items:center; }
+.active{ display:block; }
 
 @keyframes fadeIn{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
 h1{
     font-family:'Pacifico',cursive;
     font-size:2.4rem;
-    margin-bottom:10px;
 }
 
 p{
+    font-size:1.1rem;
     max-width:700px;
-    line-height:1.6;
-    font-size:1.05rem;
+    margin:20px auto;
+    line-height:1.7;
 }
 
-/* Glass Card */
-.card{
-    background:rgba(255,255,255,0.15);
-    padding:25px;
-    border-radius:20px;
-    backdrop-filter:blur(10px);
-    box-shadow:0 8px 30px rgba(0,0,0,0.25);
+/* Inputs */
+input{
+    padding:12px;
+    width:260px;
+    border-radius:25px;
+    border:none;
+    outline:none;
+    margin-top:20px;
+    font-size:0.95rem;
 }
 
 /* Buttons */
 button{
-    padding:12px 26px;
-    margin:10px;
+    padding:12px 25px;
+    margin:15px;
     border:none;
     border-radius:30px;
     font-size:1rem;
@@ -78,22 +68,10 @@ button{
     font-weight:600;
     transition:0.3s;
 }
-
 button:hover{
-    transform:scale(1.08);
+    transform:scale(1.1);
     background:#ff4b7d;
     color:white;
-}
-
-/* Input */
-input{
-    margin-top:15px;
-    padding:12px;
-    border-radius:25px;
-    border:none;
-    width:260px;
-    text-align:center;
-    font-size:1rem;
 }
 
 /* Floating Hearts */
@@ -101,50 +79,48 @@ input{
     position:fixed;
     bottom:-40px;
     font-size:22px;
-    animation:floatUp 6s linear infinite;
+    animation:floatUp linear forwards;
     opacity:0.7;
 }
-
 @keyframes floatUp{
-    0%{ transform:translateY(0) scale(1);}
-    100%{ transform:translateY(-110vh) scale(1.5); opacity:0;}
+    to{
+        transform:translateY(-110vh) scale(1.4);
+        opacity:0;
+    }
 }
 
 /* Teddy Background */
 .teddy-bg{
     position:fixed;
-    bottom:10px;
+    bottom:0;
     right:10px;
-    width:160px;
+    width:220px;
     opacity:0.9;
-    animation:floatTeddy 4s ease-in-out infinite;
+    z-index:-1;
 }
 
-@keyframes floatTeddy{
-    0%,100%{ transform:translateY(0);}
-    50%{ transform:translateY(-10px);}
+/* Message Box */
+.message{
+    background:rgba(255,255,255,0.15);
+    padding:25px;
+    border-radius:20px;
+    backdrop-filter:blur(6px);
 }
 
 /* Gallery */
 .gallery{
     display:flex;
-    gap:10px;
-    flex-wrap:wrap;
     justify-content:center;
-    margin-top:15px;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:20px;
 }
-
 .gallery img{
-    width:110px;
-    height:110px;
+    width:100px;
+    height:100px;
     object-fit:cover;
     border-radius:15px;
     border:2px solid white;
-    transition:0.3s;
-}
-
-.gallery img:hover{
-    transform:scale(1.1);
 }
 
 /* Poems */
@@ -152,7 +128,7 @@ input{
     white-space:pre-line;
     font-style:italic;
     font-size:1.15rem;
-    margin-top:20px;
+    margin-top:30px;
 }
 
 /* Burst Emojis */
@@ -161,125 +137,144 @@ input{
     font-size:28px;
     animation:burstAnim 1.2s ease-out forwards;
 }
-
 @keyframes burstAnim{
-    0%{transform:scale(0.5); opacity:1;}
-    100%{transform:translateY(-200px) scale(1.8); opacity:0;}
+    100%{
+        transform:translateY(-200px) scale(1.8);
+        opacity:0;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Teddy Bears Background -->
-<img src="white-teddy.png" class="teddy-bg" style="right:20px;">
-<img src="brown-teddy.png" class="teddy-bg" style="right:190px;">
+<img src="teddy.png" class="teddy-bg">
 
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
-    <div class="card">
-        <h1>My Love ❤️</h1>
-        <p>
-            Even with miles between us,  
-            my heart still whispers your name…
-        </p>
-        <h2>Will you be my Valentine? 💕</h2>
-        <button onclick="nextPage(2)">Yes ❤️</button>
-        <button id="noBtn">No 😜</button>
-    </div>
+    <h1>My Love ❤️</h1>
+    <p>
+        From the day you walked into my life, everything changed beautifully.
+        You became my peace, my happiness, my safest place.
+        Even in silence, even in distance — you are still my heart.
+    </p>
+    <h2>Will you be my Valentine? 💕</h2>
+
+    <button onclick="nextPage(2)">Yes ❤️</button>
+    <button id="noBtn">No 😜</button>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page" id="page2">
-    <div class="card">
-        <h1>You Said Yes 😌💖</h1>
-        <p>Let’s relive a few memories together ❤️</p>
-        <button onclick="nextPage(3)">Begin 💌</button>
-    </div>
+    <h1>You Said Yes 😌💖</h1>
+    <p>
+        That smile of yours… I can imagine it already ❤️  
+        Come, let’s walk through our memories for a moment 🥰
+    </p>
+    <button onclick="nextPage(3)">Proceed 💌</button>
 </div>
 
-<!-- QUESTIONS WITH INPUT -->
+<!-- QUESTION 1 -->
 <div class="page" id="page3">
-    <div class="card">
-        <h1>Question 1 💭</h1>
-        <p>What did I ask you on our surprise meet?</p>
-        <input placeholder="Type your answer ❤️">
-        <button onclick="nextPage(4)">Proceed 💖</button>
-    </div>
+    <h1>Question 1 💭</h1>
+    <p>What did I ask you on last year’s surprise meet?</p>
+    <input placeholder="Type your answer here...">
+    <br>
+    <button onclick="nextPage(4)">Proceed 💖</button>
 </div>
 
+<!-- QUESTION 2 -->
 <div class="page" id="page4">
-    <div class="card">
-        <h1>Question 2 💭</h1>
-        <p>Which place did we go last Valentine’s Day?</p>
-        <input placeholder="Your memory 😌">
-        <button onclick="nextPage(5)">Proceed 💖</button>
-    </div>
+    <h1>Question 2 💭</h1>
+    <p>Which shop did we go to last Valentine’s Day?</p>
+    <input placeholder="Type your answer here...">
+    <br>
+    <button onclick="nextPage(5)">Proceed 💖</button>
 </div>
 
+<!-- QUESTION 3 -->
 <div class="page" id="page5">
-    <div class="card">
-        <h1>Question 3 💭</h1>
-        <p>What gift did I give you? 🎁</p>
-        <input placeholder="Type it 💕">
-        <button onclick="nextPage(6)">Finish ❤️</button>
-    </div>
+    <h1>Question 3 💭</h1>
+    <p>What did I give you last Valentine’s Day?</p>
+    <input placeholder="Type your answer here...">
+    <br>
+    <button onclick="nextPage(6)">Finish ❤️</button>
 </div>
 
-<!-- MESSAGE -->
+<!-- ROMANTIC REUNION MESSAGE -->
 <div class="page" id="page6">
-    <div class="card">
-        <h1>No Matter What 💞</h1>
-        <p>
-            I don’t mind the answers…  
-            because loving you was never a quiz.
+    <h1>No Matter What 💞</h1>
 
-            Even in this silence,  
-            even in this distance…
+    <p class="message">
+        No matter what your answers were…  
+        I never measured our love in right or wrong.
 
-            My heart still chooses you. ❤️
-        </p>
-        <button onclick="goToPoem1()">One Last Thing 💌</button>
-    </div>
+        What we shared was never a quiz,
+        never a test,
+        never something fragile.
+
+        I know we are walking through a difficult phase…
+        a space filled with silence and distance.
+
+        But even here —  
+        my heart still speaks your name softly.
+
+        Not to pull you back with pressure,
+        but to remind you gently…
+
+        There is someone who still cares,
+        still loves,
+        still believes in *us*.
+
+        If life allows,
+        if hearts heal,
+        if paths meet again…
+
+        I will be right here,
+        with the same love,
+        the same warmth,
+        the same place for you.
+
+        Because some feelings don’t end.
+
+        **They wait. 💖**
+    </p>
+
+    <button onclick="goToPoem()">One Last Thing 💌</button>
 </div>
 
 <!-- POEM PAGE 1 -->
 <div class="page" id="page7">
-    <div class="card">
-        <h1>For You… Always 😌</h1>
+    <h1>For You… Always 😌</h1>
 
-        <div class="gallery">
-            <img src="photo1.webp">
-            <img src="photo2.webp">
-        </div>
+    <div class="gallery">
+        <img src="photo1.jpg">
+        <img src="photo2.jpg">
+        <img src="photo3.jpg">
+    </div>
 
-        <div class="poem">
+    <div class="poem">
 kaigal koorthu  
 katti anaithu  
 kaalgal inainthu  
 kaadhalai vanainthu  
 kanda kanave  
 un siripaiyum  
+andha mugathaiyum  
 en thool meedhu nee  
 meendum saaika  
 kaathirukiren  
 my buah... ❤️
-        </div>
-
-        <button onclick="goToPoem2()">Next 💕</button>
     </div>
+
+    <button onclick="nextPage(8)">Continue 💞</button>
 </div>
 
 <!-- POEM PAGE 2 -->
 <div class="page" id="page8">
-    <div class="card">
-        <h1>My Promise 💖</h1>
+    <h1>And One More From My Heart 💌</h1>
 
-        <div class="gallery">
-            <img src="photo3.webp">
-        </div>
-
-        <div class="poem">
+    <div class="poem">
 kanne kaaviyame  
 karaiyathe kadinathil  
 anbe agilame  
@@ -287,30 +282,46 @@ udan irupen intha tharunathil
 mazhaiye mazhazhai kurale  
 meedham ulla naatkalil  
 amudhe aruyire  
-ondraai kalipom kaadhalil ❤️
-        </div>
+ondraai kalipom kaadhalil  
+malare en maname  
+kaalamellaam un kaal adiyil  
+vairame iniya vaigaiye  
+irunthidave intha vaalkai varam  
+theeyum theemaiyum  
+thaangiduven unakaga  
+vaalkaiyum adhan paathaiyum  
+amaithiduven un udane irunthidave en vaalvu... ❤️
     </div>
 </div>
 
 <script>
-function nextPage(num){
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.getElementById('page'+num).classList.add('active');
+function nextPage(pageNumber){
+    document.querySelectorAll('.page').forEach(page=>{
+        page.classList.remove('active');
+    });
+    document.getElementById('page'+pageNumber).classList.add('active');
 }
 
-function goToPoem1(){
+/* Floating Hearts */
+setInterval(()=>{
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerText=Math.random()>0.5 ? "💖" : "💕";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(4+Math.random()*3)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),7000);
+},500);
+
+/* Burst Effect */
+function goToPoem(){
     burstEmojis();
     nextPage(7);
 }
 
-function goToPoem2(){
-    burstEmojis();
-    nextPage(8);
-}
-
 function burstEmojis(){
-    const emojis=["💖","💕","💘","😘","💋"];
-    for(let i=0;i<25;i++){
+    const emojis=["💖","💕","💘","💋","😘"];
+    for(let i=0;i<30;i++){
         const el=document.createElement("div");
         el.className="burst";
         el.innerText=emojis[Math.floor(Math.random()*emojis.length)];
@@ -321,26 +332,19 @@ function burstEmojis(){
     }
 }
 
-/* Floating hearts */
-setInterval(()=>{
-    const heart=document.createElement("div");
-    heart.className="heart";
-    heart.innerText=Math.random()>0.5?"💖":"💕";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.animationDuration=(4+Math.random()*3)+"s";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),7000);
-},500);
-
-/* Naughty NO button */
+/* Moving NO button */
 const noBtn=document.getElementById("noBtn");
+
 noBtn.addEventListener("mouseover",()=>{
+    const x=Math.random()*window.innerWidth*0.7;
+    const y=Math.random()*window.innerHeight*0.7;
     noBtn.style.position="absolute";
-    noBtn.style.left=Math.random()*70+"vw";
-    noBtn.style.top=Math.random()*70+"vh";
+    noBtn.style.left=x+"px";
+    noBtn.style.top=y+"px";
 });
+
 noBtn.addEventListener("click",()=>{
-    alert("Hehe… YES only 😜❤️");
+    alert("Oops! YES only 😜❤️");
 });
 </script>
 
