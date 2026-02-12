@@ -41,6 +41,20 @@ body{
     }
 }
 
+/* Watermark Photos */
+.watermark{
+    position:fixed;
+    width:220px;
+    opacity:0.08;
+    z-index:-1;
+    animation:floatWM 18s linear infinite;
+}
+
+@keyframes floatWM{
+    from{ transform:translateY(110vh) rotate(0deg); }
+    to{ transform:translateY(-120vh) rotate(360deg); }
+}
+
 .page{
     display:none;
     height:100vh;
@@ -50,6 +64,7 @@ body{
 }
 
 .active{ display:block; }
+
 .scrollable{ overflow-y:auto; }
 
 h1{
@@ -101,35 +116,13 @@ input{
     outline:none;
 }
 
-/* Teddy */
-.teddy{
-    width:190px;
+/* Hugging Bears */
+.bears{
+    width:210px;
     margin-top:10px;
 }
 
-.teddy-couple{
-    width:220px;
-    margin-top:10px;
-}
-
-/* Gallery */
-.gallery{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:20px;
-}
-
-.gallery img{
-    width:110px;
-    height:110px;
-    object-fit:cover;
-    border-radius:18px;
-    border:2px solid white;
-}
-
-/* Burst Emojis */
+/* Emoji Burst */
 .burst{
     position:fixed;
     font-size:26px;
@@ -151,6 +144,13 @@ input{
 </head>
 
 <body>
+
+<!-- Watermark Photos -->
+<img src="photo1.webp" class="watermark" style="left:5%; animation-delay:0s;">
+<img src="photo2.webp" class="watermark" style="left:25%; animation-delay:4s;">
+<img src="photo3.webp" class="watermark" style="left:45%; animation-delay:8s;">
+<img src="photo4.webp" class="watermark" style="left:65%; animation-delay:12s;">
+<img src="photo5.webp" class="watermark" style="left:85%; animation-delay:16s;">
 
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
@@ -236,7 +236,7 @@ It is us ❤️
 <div class="page scrollable" id="page7">
     <h1>A Little Something… 😌</h1>
 
-    <img src="https://cdn-icons-png.flaticon.com/512/3468/3468377.png" class="teddy">
+    <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="bears">
 
     <p>
 kaigal koorthu  
@@ -260,7 +260,7 @@ my buah... ❤️
 <div class="page scrollable" id="page8">
     <h1>And One More… 💞</h1>
 
-    <img src="https://cdn-icons-png.flaticon.com/512/3468/3468377.png" class="teddy">
+    <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="bears">
 
     <p>
 kanne kaaviyame  
@@ -289,24 +289,18 @@ irunthidave en vaalvu... ❤️
 <!-- FINAL MESSAGE -->
 <div class="page scrollable" id="page9">
     <h1>Before The Surprise Rolls Up… 💞</h1>
-
-    <!-- Hugging Teddies -->
-    <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="teddy-couple">
-
-    <!-- Your Photos -->
-    <div class="gallery">
-        <img src="photo1.jpg">
-        <img src="photo2.jpg">
-        <img src="photo3.jpg">
-        <img src="photo4.jpg">
-        <img src="photo5.jpg">
-    </div>
-
     <p>
-You are my favourite feeling,
-today, tomorrow, always ❤️
+You are my favourite feeling.
 
-Happy Valentine’s Day 💖
+Not just today,
+not just this Valentine’s Day…
+
+But in every laugh,
+every silence,
+every heartbeat of mine ❤️
+
+With you,
+everything feels right.
     </p>
 
     <button class="back-btn" onclick="goBack()">⬅ Back</button>
@@ -379,7 +373,7 @@ setInterval(()=>{
     setTimeout(()=>heart.remove(),7000);
 },500);
 
-/* NO button */
+/* NO button escape */
 const noBtn=document.getElementById("noBtn");
 noBtn.addEventListener("mouseover",()=>{
     const x=Math.random()*window.innerWidth*0.7;
@@ -392,4 +386,3 @@ noBtn.addEventListener("mouseover",()=>{
 
 </body>
 </html>
-
