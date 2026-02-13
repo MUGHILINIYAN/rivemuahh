@@ -99,6 +99,11 @@ input{
     75%{ transform: translate(40px,30px) rotate(10deg); }
     100%{ transform: translate(0,0) rotate(0deg); }
 }
+
+/* POEM IMAGES */
+.white-teddy{ width:120px; margin:20px auto; display:block; }
+.brown-teddy{ width:120px; margin:20px auto; display:block; }
+
 </style>
 </head>
 <body>
@@ -134,7 +139,7 @@ my safest place.
     <button onclick="nextPage(3)">Proceed 💌</button>
 </div>
 
-<!-- QUESTION 1 -->
+<!-- QUESTIONS 1-3 -->
 <div class="page" id="page3">
     <h1>Question 1 💭</h1>
     <p>What did I ask you on last year’s surprise meet?</p>
@@ -144,7 +149,6 @@ my safest place.
     <button onclick="validateAnswer(4,'a1')">Next 💖</button>
 </div>
 
-<!-- QUESTION 2 -->
 <div class="page" id="page4">
     <h1>Question 2 💭</h1>
     <p>Which shop did we go to last Valentine’s Day?</p>
@@ -154,7 +158,6 @@ my safest place.
     <button onclick="validateAnswer(5,'a2')">Next 💖</button>
 </div>
 
-<!-- QUESTION 3 -->
 <div class="page" id="page5">
     <h1>Question 3 💭</h1>
     <p>What did I give you last Valentine’s Day?</p>
@@ -164,7 +167,7 @@ my safest place.
     <button onclick="validateAnswer(6,'a3')">Finish ❤️</button>
 </div>
 
-<!-- FINAL MESSAGE -->
+<!-- MESSAGE PAGE -->
 <div class="page scrollable" id="page6">
     <h1>No Matter What 💞</h1>
     <p>
@@ -185,6 +188,90 @@ the same place for you. Because some feelings don’t end.
     </p>
     <button class="back-btn" onclick="goBack()">⬅ Back</button>
     <button onclick="nextPage(7)">Continue 💌</button>
+</div>
+
+<!-- POEM 1 -->
+<div class="page scrollable" id="page7">
+    <h1>A Little Something… 😌</h1>
+    <img src="white-teddy.png" class="white-teddy">
+    <p>
+kaigal koorthu  
+katti anaithu  
+kaalgal inainthu  
+kaadhalai vanainthu  
+kanda kanave  
+un siripaiyum  
+andha mugathaiyum  
+en thool meedhu nee  
+meendum saaika  
+kaathirukiren  
+my buah... ❤️
+    </p>
+    <button class="back-btn" onclick="goBack()">⬅ Back</button>
+    <button onclick="nextPage(8)">Next 💖</button>
+</div>
+
+<!-- POEM 2 -->
+<div class="page scrollable" id="page8">
+    <h1>And One More… 💞</h1>
+    <img src="brown-teddy.png" class="brown-teddy">
+    <p>
+kanne kaaviyame  
+karaiyathe kadinathil  
+anbe agilame  
+udan irupen intha tharunathil  
+mazhaiye mazhazhai kurale  
+meedham ulla naatkalil  
+amudhe aruyire  
+ondraai kalipom kaadhalil  
+malare en maname  
+kaalamellaam un kaal adiyil  
+vairame iniya vaigaiye  
+irunthidave intha vaalkai varam  
+theeyum theemaiyum  
+thaangiduven unakaga  
+vaalkaiyum adhan paathaiyum  
+amaithiduven un udane  
+irunthidave en vaalvu... ❤️
+    </p>
+    <button class="back-btn" onclick="goBack()">⬅ Back</button>
+    <button onclick="nextPage(9)">Continue 💌</button>
+</div>
+
+<!-- FINAL SLOGAN PAGE -->
+<div class="page scrollable" id="page9">
+    <h1>Before The Surprise Rolls Up… 💞</h1>
+    <p>
+If there is one person who made me feel myself it is you…  
+
+You are not just someone I love.  
+
+You are my favourite feeling, my safest place, my most beautiful thought.  
+
+Life may change, days may pass, seasons may come and go…  
+
+But one thing will stay constant.  
+        
+**My love for you.**  
+
+Today. Tomorrow. Always.
+        
+My buah, My pattu, My bangaram, My bujji,        
+My chellam, My azhagi, My ammu, My thangapulla,        
+My queen, My princess, en thangooooo💖
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+    </p>
+    <button class="back-btn" onclick="goBack()">⬅ Back</button>
+    <button onclick="nextPage(10)">One Last Thing 💌</button>
+</div>
+
+<!-- FINAL PAGE -->
+<div class="page" id="page10">
+    <h1>Thangoooo ❤️</h1>
+    <h2>✨ ENNA VITRATHA RIVE ✨</h2>
+    <h3>❤️I love you soo much thangamee❤️</h3>
+    <h4>💋uuuuummmmmmmmmaaaaaaaaahhhhhhhhh💋</h4>
+    <button class="back-btn" onclick="goBack()">⬅ Back</button>
 </div>
 
 <script>
@@ -266,6 +353,7 @@ function heartKissShower(){
 </script>
 </body>
 </html>
+
 
 
 
