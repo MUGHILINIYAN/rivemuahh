@@ -1,1 +1,293 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>For My Love ❤️</title> <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet"> <style> body{ margin:0; font-family:'Poppins',sans-serif; background:linear-gradient(135deg,#ff758c,#ff7eb3,#ff9a9e); background-size:400% 400%; animation:bgMove 15s ease infinite; color:white; text-align:center; overflow:hidden; position: relative; } /* BACKGROUND GRADIENT ANIMATION */ @keyframes bgMove{ 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} } /* PAGES */ .page{ display:none; height:100vh; padding:40px 20px; box-sizing:border-box; animation:fadeIn 0.7s ease; position: relative; z-index:1; } .active{ display:block; } .scrollable{ overflow-y:auto; } h1{ font-family:'Pacifico',cursive; font-size:2.6rem; text-shadow: 0 0 15px #ff4b7d; } h2,h3,h4{ font-family:'Poppins',sans-serif; } p{ font-size:1.15rem; max-width:650px; margin:20px auto; line-height:1.6; white-space:pre-line; text-shadow: 0 0 5px rgba(0,0,0,0.3); } button{ padding:14px 30px; margin:12px; border:none; border-radius:30px; font-size:1rem; cursor:pointer; background:white; color:#ff4b7d; font-weight:600; transition:0.3s; box-shadow: 0 6px 20px rgba(0,0,0,0.3); } button:hover{ transform:scale(1.1); background:#ff4b7d; color:white; } .back-btn{ background:transparent; border:2px solid white; color:white; } /* INPUT FIELDS */ input{ padding:14px; width:80%; max-width:350px; border-radius:25px; border:none; margin-top:15px; outline:none; font-size:1rem; } /* FLOATING HEARTS */ .heart{ position:fixed; bottom:-40px; font-size:24px; opacity:0.8; animation:floatUp linear forwards; } @keyframes floatUp{ to{ transform:translateY(-120vh) scale(1.6); opacity:0; } } @keyframes fadeIn{ from{opacity:0;} to{opacity:1;} } /* FLOATING IMAGES */ .floating-img{ position:fixed; width:180px; height:180px; border-radius:50%; object-fit:cover; z-index:0; pointer-events:none; opacity:0.9; animation:floatImg linear infinite; } @keyframes floatImg{ 0%{ transform: translate(0,0) rotate(0deg); } 25%{ transform: translate(50px,-40px) rotate(20deg); } 50%{ transform: translate(-60px,60px) rotate(-10deg); } 75%{ transform: translate(40px,30px) rotate(10deg); } 100%{ transform: translate(0,0) rotate(0deg); } } /* POEM IMAGES */ .white-teddy{ width:120px; margin:20px auto; display:block; } .brown-teddy{ width:120px; margin:20px auto; display:block; } </style> </head> <body> <!-- FLOATING IMAGES --> <img src="photo1.webp" class="floating-img" style="top:5%; left:10%; animation-duration:65s;"> <img src="photo2.webp" class="floating-img" style="top:15%; right:10%; animation-duration:80s;"> <img src="photo4.webp" class="floating-img" style="bottom:10%; left:20%; animation-duration:70s;"> <img src="photo5.webp" class="floating-img" style="bottom:15%; right:5%; animation-duration:90s;"> <!-- PAGE 1 --> <div class="page active" id="page1"> <h1>Buahhh ❤️</h1> <p> From the day you walked into my life, everything changed beautifully. You became my peace, my happiness, my safest place. </p> <h2>Will you be my Valentine? 💕</h2> <button onclick="heartKissShower(); nextPage(2);">Yes ❤️</button> <button id="noBtn">No 😜</button> </div> <!-- PAGE 2 --> <div class="page" id="page2"> <h1>You Said Yes 😌💖</h1> <p>That smile of yours… I can imagine it already ❤️</p> <button class="back-btn" onclick="goBack()">⬅ Back</button> <button onclick="nextPage(3)">Proceed 💌</button> </div> <!-- QUESTIONS 1-3 --> <div class="page" id="page3"> <h1>Question 1 💭</h1> <p>What did I ask you on last year’s surprise meet?</p> <input id="a1" placeholder="Type your answer..."> <br> <button class="back-btn" onclick="goBack()">⬅ Back</button> <button onclick="validateAnswer(4,'a1')">Next 💖</button> </div> <div class="page" id="page4"> <h1>Question 2 💭</h1> <p>Which shop did we go to last Valentine’s Day?</p> <input id="a2" placeholder="Type your answer..."> <br> <button class="back-btn" onclick="goBack()">⬅ Back</button> <button onclick="validateAnswer(5,'a2')">Next 💖</button> </div> <div class="page" id="page5"> <h1>Question 3 💭</h1> <p>What did I give you last Valentine’s Day?</p> <input id="a3" placeholder="Type your answer..."> <br> <button class="back-btn" onclick="goBack()">⬅ Back</button> <button onclick="validateAnswer(6,'a3')">Finish ❤️</button> </div> <!-- MESSAGE PAGE --> <div class="page scrollable" id="page6"> <h1>No Matter What 💞</h1> <p> No matter what your answers were… I never measured our love in right or wrong. What we shared was never a quiz, never a test, never something fragile. I know we are walking through a difficult phase… a space filled with silence and distance. But even here — my heart still speaks your name softly. Not to pull you back with pressure, but to remind you gently… There is someone who still cares, still loves, still believes in *us*. I will be right here, with the same love, the same warmth, the same place for you. Because some feelings don’t end. **They wait. 💖** </p> <button class="back-btn" onclick="goBack()">⬅ Back</button> <button onclick="nextPage(7)">Continue 💌</button> </div> <!-- POEM 1 --> <div class="page scrollable" id="page7"> <h1>A Little Something… 😌</h1> <img src="white-teddy.png" class="white-teddy"> <p> kaigal koorthu katti anaithu kaalgal inainthu kaadhalai vanainthu kanda kanave un siripaiyum andha mugathaiyum en thool meedhu nee meendum saaika kaathirukiren my buah... ❤️ </p> <button class="back-btn" onclick="goBack()">⬅ Back</button> <button onclick="nextPage(8)">Next 💖</button> </div> <!-- POEM 2 --> <div class="page scrollable" id="page8"> <h1>And One More… 💞</h1> <img src="brown-teddy.png" class="brown-teddy"> <p> kanne kaaviyame karaiyathe kadinathil anbe agilame udan irupen intha tharunathil mazhaiye mazhazhai kurale meedham ulla naatkalil amudhe aruyire ondraai kalipom kaadhalil malare en maname kaalamellaam un kaal adiyil vairame iniya vaigaiye irunthidave intha vaalkai varam theeyum theemaiyum thaangiduven unakaga vaalkaiyum adhan paathaiyum amaithiduven un udane irunthidave en vaalvu... ❤️ </p> <button class="back-btn" onclick="goBack()">⬅ Back</button> <button onclick="nextPage(9)">Continue 💌</button> </div> <!-- FINAL SLOGAN PAGE --> <div class="page scrollable" id="page9"> <h1>Before The Surprise Rolls Up… 💞</h1> <p> If there is one person who made me feel myself it is you… You are not just someone I love. You are my favourite feeling, my safest place, my most beautiful thought. Life may change, days may pass, seasons may come and go… But one thing will stay constant. **My love for you.** Today. Tomorrow. Always. My buah, My pattu, My bangaram, My bujji, My chellam, My azhagi, My ammu, My thangapulla, My queen, My princess, en thangooooo💖 ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️ </p> <button class="back-btn" onclick="goBack()">⬅ Back</button> <button onclick="nextPage(10)">One Last Thing 💌</button> </div> <!-- FINAL PAGE --> <div class="page" id="page10"> <h1>Thangoooo ❤️</h1> <h2>✨ ENNA VITRATHA RIVE ✨</h2> <h3>❤️I love you soo much thangamee❤️</h3> <h4>💋uuuuummmmmmmmmaaaaaaaaahhhhhhhhh💋</h4> <p style="margin-top:20px; font-size:1.1rem; color:#ffdad2;">(Her answers are stored silently for you 👀)</p> <button class="back-btn" onclick="goBack()">⬅ Back</button> </div> <script> let historyStack = []; let answers = {}; // store answers silently /* PAGE NAVIGATION */ function nextPage(pageNumber){ const current = document.querySelector('.page.active'); if(current) historyStack.push(current.id); document.querySelectorAll('.page').forEach(p=>p.classList.remove('active')); document.getElementById('page'+pageNumber).classList.add('active'); } function goBack(){ if(historyStack.length === 0) return; const prev = historyStack.pop(); document.querySelectorAll('.page').forEach(p=>p.classList.remove('active')); document.getElementById(prev).classList.add('active'); } function validateAnswer(next, id){ const val = document.getElementById(id).value.trim(); if(val === ""){ alert("Hey love 😌 Please type your answer ❤️"); return; } answers[id] = val; // store silently nextPage(next); } /* FLOATING HEARTS BACKGROUND */ setInterval(()=>{ const heart=document.createElement("div"); heart.className="heart"; heart.innerText=Math.random()>0.5 ? "💖":"💕"; heart.style.left=Math.random()*100+"vw"; heart.style.animationDuration=(4+Math.random()*3)+"s"; document.body.appendChild(heart); setTimeout(()=>heart.remove(),7000); },400); /* NO BUTTON ESCAPE + ALERT */ const noBtn = document.getElementById("noBtn"); noBtn.addEventListener("mouseover", () => { const x = Math.random() * (window.innerWidth - noBtn.offsetWidth); const y = Math.random() * (window.innerHeight - noBtn.offsetHeight); noBtn.style.position = "absolute"; noBtn.style.left = x + "px"; noBtn.style.top = y + "px"; }); noBtn.addEventListener("click", () => { alert("Oops Buah 😌 You are only allowed to click Yes ❤️"); }); /* HEART + KISS SHOWER */ function heartKissShower(){ const symbols = ["💖","💕","💘","💋"]; for(let i=0; i<60; i++){ const el = document.createElement("div"); el.style.position = "fixed"; el.style.fontSize = (22 + Math.random()*25) + "px"; el.style.left = Math.random()*100 + "vw"; el.style.bottom = "-60px"; el.style.pointerEvents = "none"; el.style.opacity = 0.85; el.innerText = symbols[Math.floor(Math.random()*symbols.length)]; el.style.transition = "transform 3s linear, opacity 3s linear"; document.body.appendChild(el); setTimeout(()=>{ const xMove = (Math.random()*300 - 150); const yMove = window.innerHeight + 150; el.style.transform = translate(${xMove}px, -${yMove}px) rotate(${Math.random()*360}deg); el.style.opacity = 0; }, 50); setTimeout(()=>el.remove(), 4000); } } </script> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3, #ff9a9e);
+            background-size: 400% 400%;
+            animation: bgMove 15s ease infinite;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .page {
+            display: none;
+            height: 100vh;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            animation: fadeIn 0.7s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .scrollable {
+            overflow-y: auto;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.6rem;
+            text-shadow: 0 0 15px #ff4b7d;
+        }
+
+        h2,
+        h3,
+        h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        p {
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 20px auto;
+            line-height: 1.6;
+            white-space: pre-line;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        button {
+            padding: 14px 30px;
+            margin: 12px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            background: white;
+            color: #ff4b7d;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background: #ff4b7d;
+            color: white;
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        input {
+            padding: 14px;
+            width: 80%;
+            max-width: 350px;
+            border-radius: 25px;
+            border: none;
+            margin-top: 15px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .heart {
+            position: fixed;
+            bottom: -40px;
+            font-size: 24px;
+            opacity: 0.8;
+            animation: floatUp linear forwards;
+        }
+
+        @keyframes floatUp {
+            to {
+                transform: translateY(-120vh) scale(1.6);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .floating-img {
+            position: fixed;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.9;
+            animation: floatImg linear infinite;
+        }
+
+        @keyframes floatImg {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(50px, -40px) rotate(20deg); }
+            50% { transform: translate(-60px, 60px) rotate(-10deg); }
+            75% { transform: translate(40px, 30px) rotate(10deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        .white-teddy,
+        .brown-teddy {
+            width: 120px;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="photo1.webp" class="floating-img" style="top:5%; left:10%; animation-duration:65s;">
+    <img src="photo2.webp" class="floating-img" style="top:15%; right:10%; animation-duration:80s;">
+    <img src="photo4.webp" class="floating-img" style="bottom:10%; left:20%; animation-duration:70s;">
+    <img src="photo5.webp" class="floating-img" style="bottom:15%; right:5%; animation-duration:90s;">
+
+    <div class="page active" id="page1">
+        <h1>Buahhh ❤️</h1>
+        <p>
+From the day you walked into my life,
+everything changed beautifully.
+You became my peace, my happiness, my safest place.
+        </p>
+
+        <h2>Will you be my Valentine? 💕</h2>
+        <button onclick="heartKissShower(); nextPage(2);">Yes ❤️</button>
+        <button id="noBtn">No 😜</button>
+    </div>
+
+    <div class="page" id="page2">
+        <h1>You Said Yes 😌💖</h1>
+        <p>That smile of yours… I can imagine it already ❤️</p>
+        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+        <button onclick="nextPage(3)">Proceed 💌</button>
+    </div>
+
+    <div class="page" id="page3">
+        <h1>Question 1 💭</h1>
+        <p>What did I ask you on last year’s surprise meet?</p>
+        <input id="a1" placeholder="Type your answer...">
+        <br>
+        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+        <button onclick="validateAnswer(4,'a1')">Next 💖</button>
+    </div>
+
+    <div class="page" id="page4">
+        <h1>Question 2 💭</h1>
+        <p>Which shop did we go to last Valentine’s Day?</p>
+        <input id="a2" placeholder="Type your answer...">
+        <br>
+        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+        <button onclick="validateAnswer(5,'a2')">Next 💖</button>
+    </div>
+
+    <div class="page" id="page5">
+        <h1>Question 3 💭</h1>
+        <p>What did I give you last Valentine’s Day?</p>
+        <input id="a3" placeholder="Type your answer...">
+        <br>
+        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+        <button onclick="validateAnswer(6,'a3')">Finish ❤️</button>
+    </div>
+
+    <div class="page scrollable" id="page6">
+        <h1>No Matter What 💞</h1>
+        <p>
+No matter what your answers were…
+I never measured our love in right or wrong.
+Because some feelings don’t end.
+They wait. 💖
+        </p>
+        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+        <button onclick="nextPage(7)">Continue 💌</button>
+    </div>
+
+    <div class="page scrollable" id="page7">
+        <h1>A Little Something… 😌</h1>
+        <img src="white-teddy.png" class="white-teddy">
+        <p>
+kaigal koorthu
+katti anaithu
+kaalgal inainthu
+kaadhalai vanainthu
+kanda kanave
+un siripaiyum
+andha mugathaiyum
+en thool meedhu nee
+meendum saaika
+kaathirukiren
+my buah... ❤️
+        </p>
+        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+        <button onclick="nextPage(8)">Next 💖</button>
+    </div>
+
+    <div class="page scrollable" id="page8">
+        <h1>And One More… 💞</h1>
+        <img src="brown-teddy.png" class="brown-teddy">
+        <p>
+kanne kaaviyame
+karaiyathe kadinathil
+anbe agilame
+udan irupen intha tharunathil
+mazhaiye mazhazhai kurale
+meedham ulla naatkalil
+amudhe aruyire
+ondraai kalipom kaadhalil
+malare en maname
+kaalamellaam un kaal adiyil
+vairame iniya vaigaiye
+irunthidave intha vaalkai varam
+theeyum theemaiyum
+thaangiduven unakaga
+vaalkaiyum adhan paathaiyum
+amaithiduven un udane
+irunthidave en vaalvu... ❤️
+        </p>
+        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+        <button onclick="nextPage(9)">Continue 💌</button>
+    </div>
+
+    <div class="page scrollable" id="page9">
+        <h1>Before The Surprise Rolls Up… 💞</h1>
+        <p>
+If there is one person who made me feel myself it is you…
+My love for you.
+Today. Tomorrow. Always.
+        </p>
+        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+        <button onclick="nextPage(10)">One Last Thing 💌</button>
+    </div>
+
+    <div class="page" id="page10">
+        <h1>Thangoooo ❤️</h1>
+        <h2>✨ ENNA VITRATHA RIVE ✨</h2>
+        <h3>❤️I love you soo much thangamee❤️</h3>
+        <h4>💋uuuuummmmmmmmmaaaaaaaaahhhhhhhhh💋</h4>
+        <img src="sign.png" class="sign">
+        <p style="margin-top:20px; font-size:1.1rem; color:#ffdad2;">
+            (Her answers are stored silently for you 👀)
+        </p>
+        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+    </div>
+
+</body>
+
+</html>
+
