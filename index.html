@@ -14,7 +14,7 @@ body{
     font-family:'Poppins',sans-serif;
     background:linear-gradient(135deg,#ff758c,#ff7eb3,#ff9a9e);
     background-size:400% 400%;
-    animation:bgMove 12s ease infinite;
+    animation:bgMove 15s ease infinite;
     color:white;
     text-align:center;
     overflow:hidden;
@@ -42,12 +42,12 @@ body{
 .active{ display:block; }
 .scrollable{ overflow-y:auto; }
 
-h1{ font-family:'Pacifico',cursive; font-size:2.4rem; }
+h1{ font-family:'Pacifico',cursive; font-size:2.6rem; text-shadow: 0 0 15px #ff4b7d; }
 h2,h3,h4{ font-family:'Poppins',sans-serif; }
-p{ font-size:1.1rem; max-width:650px; margin:20px auto; line-height:1.6; white-space:pre-line; }
+p{ font-size:1.15rem; max-width:650px; margin:20px auto; line-height:1.6; white-space:pre-line; text-shadow: 0 0 5px rgba(0,0,0,0.3); }
 
 button{
-    padding:12px 25px;
+    padding:14px 30px;
     margin:12px;
     border:none;
     border-radius:30px;
@@ -57,53 +57,56 @@ button{
     color:#ff4b7d;
     font-weight:600;
     transition:0.3s;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
-button:hover{ transform:scale(1.08); background:#ff4b7d; color:white; }
+button:hover{ transform:scale(1.1); background:#ff4b7d; color:white; }
 .back-btn{ background:transparent; border:2px solid white; color:white; }
 
 /* INPUT FIELDS */
 input{
-    padding:12px;
+    padding:14px;
     width:80%;
-    max-width:320px;
+    max-width:350px;
     border-radius:25px;
     border:none;
     margin-top:15px;
     outline:none;
+    font-size:1rem;
 }
 
 /* FLOATING HEARTS */
-.heart{ position:fixed; bottom:-40px; font-size:22px; opacity:0.7; animation:floatUp linear forwards; }
-@keyframes floatUp{ to{ transform:translateY(-110vh) scale(1.4); opacity:0; } }
+.heart{ position:fixed; bottom:-40px; font-size:24px; opacity:0.8; animation:floatUp linear forwards; }
+@keyframes floatUp{ to{ transform:translateY(-120vh) scale(1.6); opacity:0; } }
 
 /* BURST EMOJIS */
-.burst{ position:fixed; font-size:26px; animation:burstAnim 1.3s ease-out forwards; }
-@keyframes burstAnim{ to{ transform:translateY(-220px) scale(1.8); opacity:0; } }
+.burst{ position:fixed; font-size:28px; animation:burstAnim 1.3s ease-out forwards; }
+@keyframes burstAnim{ to{ transform:translateY(-220px) scale(2); opacity:0; } }
 
 @keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
 
-/* WATERMARK DIVS */
+/* WATERMARK DIVS (BIGGER + DARKER) */
 .watermark{
     position: fixed;
-    width: 150px;
-    height: 150px;
+    width: 220px;
+    height: 220px;
     background-size: cover;
     background-position: center;
-    opacity: 0.08;
+    opacity: 0.18;
     pointer-events: none;
     z-index:0;
     border-radius:50%;
+    filter: brightness(0.8);
 }
 
-.floatA { background-image: url('photo1.webp'); animation: floatA 60s linear infinite; top:5%; left:10%; }
-.floatB { background-image: url('photo2.webp'); animation: floatB 80s linear infinite; top:15%; left:70%; }
-.floatC { background-image: url('photo4.webp'); animation: floatC 70s linear infinite; bottom:10%; left:20%; }
-.floatD { background-image: url('photo5.webp'); animation: floatD 90s linear infinite; bottom:15%; right:10%; }
+.floatA { background-image: url('photo1.webp'); animation: floatA 60s linear infinite; top:5%; left:5%; }
+.floatB { background-image: url('photo2.webp'); animation: floatB 80s linear infinite; top:10%; right:10%; }
+.floatC { background-image: url('photo4.webp'); animation: floatC 70s linear infinite; bottom:10%; left:15%; }
+.floatD { background-image: url('photo5.webp'); animation: floatD 90s linear infinite; bottom:15%; right:5%; }
 
-@keyframes floatA {0% {transform: translate(0,0);} 25% {transform: translate(50px,-30px);} 50% {transform: translate(-40px,40px);} 75% {transform: translate(30px,20px);} 100% {transform: translate(0,0);}}
-@keyframes floatB {0% {transform: translate(0,0);} 25% {transform: translate(-60px,30px);} 50% {transform: translate(40px,-20px);} 75% {transform: translate(-30px,10px);} 100% {transform: translate(0,0);}}
-@keyframes floatC {0% {transform: translate(0,0);} 25% {transform: translate(30px,40px);} 50% {transform: translate(-50px,-30px);} 75% {transform: translate(20px,10px);} 100% {transform: translate(0,0);}}
-@keyframes floatD {0% {transform: translate(0,0);} 25% {transform: translate(-40px,-30px);} 50% {transform: translate(50px,20px);} 75% {transform: translate(-20px,30px);} 100% {transform: translate(0,0);}}
+@keyframes floatA {0% {transform: translate(0,0);} 25% {transform: translate(60px,-40px);} 50% {transform: translate(-50px,50px);} 75% {transform: translate(40px,30px);} 100% {transform: translate(0,0);}}
+@keyframes floatB {0% {transform: translate(0,0);} 25% {transform: translate(-70px,40px);} 50% {transform: translate(50px,-30px);} 75% {transform: translate(-40px,20px);} 100% {transform: translate(0,0);}}
+@keyframes floatC {0% {transform: translate(0,0);} 25% {transform: translate(40px,50px);} 50% {transform: translate(-60px,-40px);} 75% {transform: translate(30px,20px);} 100% {transform: translate(0,0);}}
+@keyframes floatD {0% {transform: translate(0,0);} 25% {transform: translate(-50px,-40px);} 50% {transform: translate(60px,30px);} 75% {transform: translate(-30px,40px);} 100% {transform: translate(0,0);}}
 </style>
 </head>
 <body>
@@ -169,7 +172,7 @@ my safest place.
     <button onclick="validateAnswer(6,'a3')">Finish ❤️</button>
 </div>
 
-<!-- MESSAGE -->
+<!-- FINAL MESSAGE -->
 <div class="page scrollable" id="page6">
     <h1>No Matter What 💞</h1>
     <p>
@@ -190,90 +193,6 @@ the same place for you. Because some feelings don’t end.
     </p>
     <button class="back-btn" onclick="goBack()">⬅ Back</button>
     <button onclick="nextPage(7)">Continue 💌</button>
-</div>
-
-<!-- POEM 1 -->
-<div class="page scrollable" id="page7">
-    <h1>A Little Something… 😌</h1>
-    <img src="white-teddy.png" class="white-teddy">
-    <p>
-kaigal koorthu  
-katti anaithu  
-kaalgal inainthu  
-kaadhalai vanainthu  
-kanda kanave  
-un siripaiyum  
-andha mugathaiyum  
-en thool meedhu nee  
-meendum saaika  
-kaathirukiren  
-my buah... ❤️
-    </p>
-    <button class="back-btn" onclick="goBack()">⬅ Back</button>
-    <button onclick="nextPage(8)">Next 💖</button>
-</div>
-
-<!-- POEM 2 -->
-<div class="page scrollable" id="page8">
-    <h1>And One More… 💞</h1>
-    <img src="brown-teddy.png" class="brown-teddy">
-    <p>
-kanne kaaviyame  
-karaiyathe kadinathil  
-anbe agilame  
-udan irupen intha tharunathil  
-mazhaiye mazhazhai kurale  
-meedham ulla naatkalil  
-amudhe aruyire  
-ondraai kalipom kaadhalil  
-malare en maname  
-kaalamellaam un kaal adiyil  
-vairame iniya vaigaiye  
-irunthidave intha vaalkai varam  
-theeyum theemaiyum  
-thaangiduven unakaga  
-vaalkaiyum adhan paathaiyum  
-amaithiduven un udane  
-irunthidave en vaalvu... ❤️
-    </p>
-    <button class="back-btn" onclick="goBack()">⬅ Back</button>
-    <button onclick="nextPage(9)">Continue 💌</button>
-</div>
-
-<!-- FINAL MESSAGE -->
-<div class="page scrollable" id="page9">
-    <h1>Before The Surprise Rolls Up… 💞</h1>
-    <p>
-If there is one person who made me feel myself it is you…  
-
-You are not just someone I love.  
-
-You are my favourite feeling, my safest place, my most beautiful thought.  
-
-Life may change, days may pass, seasons may come and go…  
-
-But one thing will stay constant.  
-        
-**My love for you.**  
-
-Today. Tomorrow. Always.
-        
-My buah, My pattu, My bangaram, My bujji,        
-My chellam, My azhagi, My ammu, My thangapulla,        
-My queen, My princess, en thangooooo💖
-❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
-    </p>
-    <button class="back-btn" onclick="goBack()">⬅ Back</button>
-    <button onclick="nextPage(10)">One Last Thing 💌</button>
-</div>
-
-<!-- FINAL PAGE -->
-<div class="page" id="page10">
-    <h1>Thangoooo ❤️</h1>
-    <h2>✨ ENNA VITRATHA RIVE ✨</h2>
-    <h3>❤️I love you soo much thangamee❤️</h3>
-    <h4>💋uuuuummmmmmmmmaaaaaaaaahhhhhhhhh💋</h4>
-    <button class="back-btn" onclick="goBack()">⬅ Back</button>
 </div>
 
 <script>
@@ -312,12 +231,10 @@ setInterval(()=>{
     heart.style.animationDuration=(4+Math.random()*3)+"s";
     document.body.appendChild(heart);
     setTimeout(()=>heart.remove(),7000);
-},500);
+},400);
 
 /* NO BUTTON ESCAPE + ALERT */
 const noBtn = document.getElementById("noBtn");
-
-// Move button randomly on hover
 noBtn.addEventListener("mouseover", () => {
     const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
     const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
@@ -325,8 +242,6 @@ noBtn.addEventListener("mouseover", () => {
     noBtn.style.left = x + "px";
     noBtn.style.top = y + "px";
 });
-
-// Alert if clicked
 noBtn.addEventListener("click", () => {
     alert("Oops Buah 😌 You are only allowed to click Yes ❤️");
 });
@@ -334,31 +249,33 @@ noBtn.addEventListener("click", () => {
 /* HEART + KISS SHOWER */
 function heartKissShower(){
     const symbols = ["💖","💕","💘","💋"];
-    for(let i=0; i<50; i++){
+    for(let i=0; i<60; i++){
         const el = document.createElement("div");
         el.style.position = "fixed";
-        el.style.fontSize = (20 + Math.random()*20) + "px";
+        el.style.fontSize = (22 + Math.random()*25) + "px";
         el.style.left = Math.random()*100 + "vw";
-        el.style.bottom = "-50px";
+        el.style.bottom = "-60px";
         el.style.pointerEvents = "none";
-        el.style.opacity = 0.8;
+        el.style.opacity = 0.85;
         el.innerText = symbols[Math.floor(Math.random()*symbols.length)];
         el.style.transition = "transform 3s linear, opacity 3s linear";
         document.body.appendChild(el);
 
         setTimeout(()=>{
-            const xMove = (Math.random()*200 - 100);
-            const yMove = window.innerHeight + 100;
+            const xMove = (Math.random()*300 - 150);
+            const yMove = window.innerHeight + 150;
             el.style.transform = `translate(${xMove}px, -${yMove}px) rotate(${Math.random()*360}deg)`;
             el.style.opacity = 0;
         }, 50);
 
-        setTimeout(()=>el.remove(), 3500);
+        setTimeout(()=>el.remove(), 4000);
     }
 }
 </script>
 </body>
 </html>
+
+
 
 
 
