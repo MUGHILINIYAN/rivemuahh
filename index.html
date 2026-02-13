@@ -271,11 +271,13 @@ My queen, My princess, en thangooooo💖
     <h2>✨ ENNA VITRATHA RIVE ✨</h2>
     <h3>❤️I love you soo much thangamee❤️</h3>
     <h4>💋uuuuummmmmmmmmaaaaaaaaahhhhhhhhh💋</h4>
+    <p style="margin-top:20px; font-size:1.1rem; color:#ffdad2;">(Her answers are stored silently for you 👀)</p>
     <button class="back-btn" onclick="goBack()">⬅ Back</button>
 </div>
 
 <script>
 let historyStack = [];
+let answers = {}; // store answers silently
 
 /* PAGE NAVIGATION */
 function nextPage(pageNumber){
@@ -298,6 +300,7 @@ function validateAnswer(next, id){
         alert("Hey love 😌 Please type your answer ❤️");
         return;
     }
+    answers[id] = val; // store silently
     nextPage(next);
 }
 
@@ -353,9 +356,3 @@ function heartKissShower(){
 </script>
 </body>
 </html>
-
-
-
-
-
-
